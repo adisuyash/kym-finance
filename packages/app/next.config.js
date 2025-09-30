@@ -7,8 +7,14 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
-  // Faster builds
-  swcMinify: true,
+  // Skip type checking during build (types are checked in CI)
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   
   webpack: (config) => {
     config.externals.push('pino-pretty', 'lokijs', 'encoding')

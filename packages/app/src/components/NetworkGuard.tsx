@@ -47,7 +47,7 @@ export function NetworkGuard({ children }: { children: React.ReactNode }) {
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Wrong Network</h2>
             <p className="text-gray-600 mb-6">
-              You're currently connected to <span className="font-semibold">Chain ID: {chainId}</span>
+              You&apos;re currently connected to <span className="font-semibold">Chain ID: {chainId}</span>
               <br />
               Please switch to <span className="font-semibold text-emerald-600">U2U Nebulas Testnet</span>
             </p>
