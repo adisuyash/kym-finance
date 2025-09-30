@@ -34,7 +34,8 @@ TRADE    TRADE
 
 ## How it works:
 
-<img width="6317" height="3829" alt="kym-finance" src="https://github.com/user-attachments/assets/a7f63197-1542-4ebd-bc2e-8c01d9dc2586" />
+<img width="6317" height="3929" alt="kym-finance userflow" src="https://github.com/user-attachments/assets/febab3c6-5dd1-4d29-bc77-53acc6d2e7ea" />
+
 
 1. Deposit U2U and wrap it to wU2U
 2. Split wU2U into PT (principal) + YT (yield)
