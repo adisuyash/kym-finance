@@ -1,0 +1,12 @@
+{
+  "network": "u2uTestnet",
+  "chainId": 2484,
+  "wrappedU2U": "",
+  "yieldSplitter": "",
+  "principalToken": "",
+  "yieldToken": "",
+  "orochiOracle": "",
+  "mockAMM": "",
+  "deployer": "0x225d5a1079121faD050a33bDf1373bAf71aa4219",
+  "deployedAt": ""
+}
