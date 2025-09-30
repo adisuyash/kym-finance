@@ -1,4 +1,4 @@
-# Kym-Finance
+# Kym Finance
 
 Kym Finance is a DeFi protocol that helps you trade and optimize yields from yield-generating assets.
 
@@ -6,29 +6,36 @@ Kym Finance is a DeFi protocol that helps you trade and optimize yields from yie
 
 ## Quick Links
 
-- [U2U Testnet Explorer](https://testnet.u2uscan.xyz/)
-- [Get Testnet U2U](https://faucet.u2u.xyz/)
-- [How to Use](#how-to-use)
-- [Installation](#installation--setup)
+- [Faucet - U2U Testnet](https://faucet.u2u.xyz/)
+- [Explorer - U2U Testnet](https://testnet.u2uscan.xyz/)
+- [Setup & Installation](#installation--setup)
 
 ## What is Kym?
 
-Your Asset (wU2U)
+```
+Your Asset (U2U)
         ↓
-    [SPLIT]
+    [Wrap]
+      ↓
+Wrapped Asset (wU2U)
+        ↓
+     [Split]
         ↓
    ┌────┴────┐
    ↓         ↓
   PT        YT
-(95%)     (5%)
+ (95%)     (5%)
 Principal  Yield
    ↓         ↓
- TRADE    TRADE
-   or       or
+TRADE    TRADE
+  or       or
  HOLD     HOLD
 ```
 
-**How it works:**
+## How it works:
+
+<img width="6317" height="3829" alt="kym-finance" src="https://github.com/user-attachments/assets/a7f63197-1542-4ebd-bc2e-8c01d9dc2586" />
+
 1. Deposit U2U and wrap it to wU2U
 2. Split wU2U into PT (principal) + YT (yield)
 3. Trade PT/YT on the AMM or hold for yield
@@ -36,12 +43,12 @@ Principal  Yield
 
 ## Core Features
 
-**Smart Token Splitting**
+### Smart Token Splitting
 Transform your wU2U into two tradeable tokens:
 - **PT (Principal Token)**: Represents your guaranteed principal (~95% of value)
 - **YT (Yield Token)**: Captures future yield potential (~5% of value)
 
-**Advanced Pricing**
+### Advanced Pricing
 Uses time-value mathematics with discount factor formula: `PT = Amount × [1/(1+r)^t]`
 
 **Instant Trading**
@@ -54,8 +61,6 @@ Hold YT tokens to accumulate and claim yields over time
 Built specifically for U2U Network with optimized gas usage
 
 ## Architecture
-
-<img width="6317" height="3829" alt="kym-finance" src="https://github.com/user-attachments/assets/a7f63197-1542-4ebd-bc2e-8c01d9dc2586" />
 
 ### Smart Contracts
 
@@ -165,12 +170,13 @@ Total: 1.0 wU2U (perfectly balanced)
 ```bash
 # Clone the repository
 git clone https://github.com/your-username/kym-finance
-cd kadena-yield-splitter
+cd kym-finance
 
 # Install dependencies
 npm install
 
 # Start development server
+cd packages/app
 npm run dev
 ```
 
@@ -181,7 +187,7 @@ Create `.env.local` in `packages/app/`:
 ```env
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
 NEXT_PUBLIC_SITE_NAME="Kym Finance"
-NEXT_PUBLIC_SITE_DESCRIPTION="Pendle-style yield splitting on Kadena"
+NEXT_PUBLIC_SITE_DESCRIPTION="Yield splitting protocol on U2U Network"
 NEXT_PUBLIC_SITE_URL="https://your-domain.com"
 ```
 
@@ -189,13 +195,13 @@ NEXT_PUBLIC_SITE_URL="https://your-domain.com"
 
 ### 1. Connect Wallet
 
-- Connect MetaMask to Kadena EVM Testnet
-- Add network: Chain ID 5920, RPC: `https://evm-testnet.chainweb.com/chainweb/0.0/evm-testnet/chain/20/evm/rpc`
+- Connect MetaMask to U2U Nebulas Testnet
+- Add network: Chain ID 2484, RPC: `https://rpc-nebulas-testnet.u2u.xyz/`
 
 ### 2. Get Test U2U
 
-- Use Kadena testnet faucet to get test U2U
-- Or contact the team for test tokens
+- Use U2U testnet faucet: https://faucet.u2u.xyz/
+- Enter your wallet address and receive test U2U
 
 ### 3. Wrap U2U → wU2U
 
@@ -252,29 +258,26 @@ npx hardhat compile
 npx hardhat test
 ```
 
-### Deploy to Kadena Testnet
+### Deploy to U2U Testnet
 
 ```bash
 cd packages/hardhat
 
 # Deploy all contracts
-npx hardhat run scripts/deployToKadena.js --network kadenaTestnet
+npx hardhat run scripts/deployToU2UTestnet.js --network u2uTestnet
 
 # Initialize AMM pool
-npx hardhat run scripts/setupPoolDemo.js --network kadenaTestnet
+npx hardhat run scripts/initPool.js --network u2uTestnet
 ```
 
 ### Useful Scripts
 
 ```bash
-# Test Pendle pricing
-npx hardhat run scripts/testPendlePricing.js --network kadenaTestnet
-
 # Check pool status
-npx hardhat run scripts/checkPool.js --network kadenaTestnet
+npx hardhat run scripts/checkPoolStatus.js --network u2uTestnet
 
-# Check yield accumulation
-npx hardhat run scripts/checkYield.js --network kadenaTestnet
+# Setup demo data
+npx hardhat run scripts/setupDemo.js --network u2uTestnet
 ```
 
 ## Technical Implementation
@@ -376,4 +379,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ for the VietBUIDL Hackathon
+*Built with ❤️ for the VietBUIDL Hackathon*
