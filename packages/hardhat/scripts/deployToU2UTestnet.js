@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  console.log("🚀 Deploying KYM Finance to U2U Nebulas Testnet...");
+  console.log("🚀 Deploying Kym Finance to U2U Nebulas Testnet...");
 
   const [deployer] = await ethers.getSigners();
   console.log("👤 Deploying with account:", deployer.address);
@@ -47,7 +47,7 @@ async function main() {
 
   // 3. Deploy OrochiOracle
   console.log("\n📊 Step 3: Deploying OrochiOracle...");
-  const Oracle = await ethers.getContractFactory("Oracle");
+  const Oracle = await ethers.getContractFactory("OrochiOracle");
   const orochiOracle = await Oracle.deploy();
   await orochiOracle.waitForDeployment();
   const OracleAddress = await orochiOracle.getAddress();
@@ -74,8 +74,8 @@ async function main() {
 
   console.log("\n🔗 U2U Nebulas Testnet Info:");
   console.log("Chain ID: 2484");
-  console.log("RPC: https://evm-testnet.chainweb.com/chainweb/0.0/evm-testnet/chain/20/evm/rpc");
-  console.log("Explorer: http://chain-20.evm-testnet-blockscout.chainweb.com/");
+  console.log("RPC: https://rpc-nebulas-testnet.u2u.xyz/");
+  console.log("Explorer: https://testnet.u2uscan.xyz/");
 
   console.log("\n📝 Frontend Configuration:");
   console.log("Update these addresses in your frontend components:");

@@ -10,5 +10,8 @@
     "dev": "yarn workspaces -pt run dev",
     "build": "yarn workspaces -pt run build",
     "test": "yarn workspaces -pt run test"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.24.0"
   }
 }

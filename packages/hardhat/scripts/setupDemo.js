@@ -3,11 +3,11 @@ const { ethers } = require("hardhat");
 async function main() {
   console.log("🎭 Setting up demo environment...");
 
-  // Contract addresses (deployed on U2U Nebulas Testnet)
-  const WRAPPED_U2U_ADDRESS = "0xF7Bce9D2106773D8d14B17B49FC261EfF52e7d0D";
-  const YIELD_SPLITTER_ADDRESS = "0x81485FBD886d262b671F1789FB066366619eA8c7";
-  const MOCK_AMM_ADDRESS = "0x3aE2a95a17aEdb8B53d0EBa6715336274b098DbF";
-  const OROCHI_ORACLE_ADDRESS = "0x70523434ee6a9870410960E2615406f8F9850676";
+  // Contract addresses (deployed 2025-09-30)
+  const WRAPPED_U2U_ADDRESS = "0x31c13bed4969a135bE285Bcb7BfDc56b601EaA43";
+  const YIELD_SPLITTER_ADDRESS = "0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4";
+  const MOCK_AMM_ADDRESS = "0x5158337793D9913b5967B91a32bB328521D7C7fb";
+  const OROCHI_ORACLE_ADDRESS = "0xe702013eA3045D265720337127f06a6cCab4Fd15";
 
   if (WRAPPED_U2U_ADDRESS === "0x..." || YIELD_SPLITTER_ADDRESS === "0x...") {
     console.error("❌ Please update contract addresses in this script");
