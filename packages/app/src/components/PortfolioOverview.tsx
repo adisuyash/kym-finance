@@ -20,28 +20,37 @@ export function PortfolioOverview({ u2uBalance, wu2uBalance }: PortfolioOverview
   const chainId = useChainId()
   const contracts = getContractAddresses(chainId)
 
-  // Get PT balance from token contract
-  const { data: ptBalance } = useReadContract({
+  // Get PT balance from token contract with refetch
+  const { data: ptBalance, refetch: refetchPT } = useReadContract({
     address: contracts.principalToken,
     abi: TOKEN_ABI,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
+    query: {
+      refetchInterval: 3000, // Auto-refetch every 3 seconds
+    },
   })
 
-  // Get YT balance from token contract
-  const { data: ytBalance } = useReadContract({
+  // Get YT balance from token contract with refetch
+  const { data: ytBalance, refetch: refetchYT } = useReadContract({
     address: contracts.yieldToken,
     abi: TOKEN_ABI,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
+    query: {
+      refetchInterval: 3000, // Auto-refetch every 3 seconds
+    },
   })
 
-  // Get user position for claimable yield
-  const { data: userPosition } = useReadContract({
+  // Get user position for claimable yield with refetch
+  const { data: userPosition, refetch: refetchPosition } = useReadContract({
     address: contracts.yieldSplitter,
     abi: YIELD_SPLITTER_ABI,
     functionName: 'getUserPosition',
     args: address ? [address] : undefined,
+    query: {
+      refetchInterval: 3000, // Auto-refetch every 3 seconds
+    },
   })
 
   const claimableYield = userPosition && Array.isArray(userPosition) && userPosition.length >= 3 ? userPosition[2] : 0n

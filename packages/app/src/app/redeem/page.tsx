@@ -22,8 +22,8 @@ export default function RedeemPage() {
   const chainId = useChainId()
   const contracts = getContractAddresses(chainId)
 
-  const { data: u2uBalance } = useBalance({ address: address })
-  const { data: wu2uBalance } = useBalance({ address: address, token: contracts.wrappedU2U })
+  const { data: u2uBalance } = useBalance({ address: address, query: { refetchInterval: 3000 } })
+  const { data: wu2uBalance } = useBalance({ address: address, token: contracts.wrappedU2U, query: { refetchInterval: 3000 } })
 
   const { data: userPosition } = useReadContract({
     address: contracts.yieldSplitter,
