@@ -44,7 +44,7 @@ export default function DepositPage() {
 
         {/* Portfolio Overview - Horizontal */}
         <div className='mb-6'>
-          <PortfolioOverview userPosition={undefined} u2uBalance={u2uBalance} wu2uBalance={wu2uBalance} />
+          <PortfolioOverview u2uBalance={u2uBalance} wu2uBalance={wu2uBalance} />
         </div>
 
         {/* Main Layout - Chart on Left, Actions on Right */}

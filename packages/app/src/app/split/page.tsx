@@ -42,7 +42,7 @@ export default function SplitPage() {
 
         <div className='mb-6'>
           <PortfolioOverview
-            userPosition={userPosition as readonly [bigint, bigint, bigint] | undefined}
+            
             u2uBalance={u2uBalance}
             wu2uBalance={wu2uBalance}
           />

@@ -1,6 +1,8 @@
 'use client'
 
 import { formatEther } from 'viem'
+import { useAccount, useChainId, useReadContract } from 'wagmi'
+import { getContractAddresses, TOKEN_ABI, YIELD_SPLITTER_ABI } from '@/config/contracts'
 
 interface Balance {
   value: bigint
@@ -9,21 +11,46 @@ interface Balance {
 }
 
 interface PortfolioOverviewProps {
-  userPosition?: readonly [bigint, bigint, bigint] // [ptBalance, ytBalance, claimableYield]
   u2uBalance?: Balance
   wu2uBalance?: Balance
 }
 
-export function PortfolioOverview({ userPosition, u2uBalance, wu2uBalance }: PortfolioOverviewProps) {
-  const ptBalance = userPosition ? userPosition[0] : 0n
-  const ytBalance = userPosition ? userPosition[1] : 0n
-  const claimableYield = userPosition ? userPosition[2] : 0n
+export function PortfolioOverview({ u2uBalance, wu2uBalance }: PortfolioOverviewProps) {
+  const { address } = useAccount()
+  const chainId = useChainId()
+  const contracts = getContractAddresses(chainId)
+
+  // Get PT balance from token contract
+  const { data: ptBalance } = useReadContract({
+    address: contracts.principalToken,
+    abi: TOKEN_ABI,
+    functionName: 'balanceOf',
+    args: address ? [address] : undefined,
+  })
+
+  // Get YT balance from token contract
+  const { data: ytBalance } = useReadContract({
+    address: contracts.yieldToken,
+    abi: TOKEN_ABI,
+    functionName: 'balanceOf',
+    args: address ? [address] : undefined,
+  })
+
+  // Get user position for claimable yield
+  const { data: userPosition } = useReadContract({
+    address: contracts.yieldSplitter,
+    abi: YIELD_SPLITTER_ABI,
+    functionName: 'getUserPosition',
+    args: address ? [address] : undefined,
+  })
+
+  const claimableYield = userPosition && Array.isArray(userPosition) && userPosition.length >= 3 ? userPosition[2] : 0n
 
   const totalPortfolioValue = () => {
     const u2u = u2uBalance ? parseFloat(formatEther(u2uBalance.value)) : 0
     const wu2u = wu2uBalance ? parseFloat(formatEther(wu2uBalance.value)) : 0
-    const pt = parseFloat(formatEther(ptBalance))
-    const yt = parseFloat(formatEther(ytBalance))
+    const pt = ptBalance ? parseFloat(formatEther(ptBalance)) : 0
+    const yt = ytBalance ? parseFloat(formatEther(ytBalance)) : 0
     const yield_ = parseFloat(formatEther(claimableYield))
 
     return u2u + wu2u + pt + yt + yield_
@@ -74,7 +101,7 @@ export function PortfolioOverview({ userPosition, u2uBalance, wu2uBalance }: Por
             <div className='w-2 h-2 bg-indigo-400 rounded-full'></div>
             <span className='text-xs text-white/50'>PT</span>
           </div>
-          <div className='text-xl font-bold text-white'>{parseFloat(formatEther(ptBalance)).toFixed(4)}</div>
+          <div className='text-xl font-bold text-white'>{ptBalance ? parseFloat(formatEther(ptBalance)).toFixed(4) : '0.0000'}</div>
           <div className='text-xs text-white/40 mt-1'>Principal</div>
         </div>
 
@@ -84,7 +111,7 @@ export function PortfolioOverview({ userPosition, u2uBalance, wu2uBalance }: Por
             <div className='w-2 h-2 bg-purple-400 rounded-full'></div>
             <span className='text-xs text-white/50'>YT</span>
           </div>
-          <div className='text-xl font-bold text-white'>{parseFloat(formatEther(ytBalance)).toFixed(4)}</div>
+          <div className='text-xl font-bold text-white'>{ytBalance ? parseFloat(formatEther(ytBalance)).toFixed(4) : '0.0000'}</div>
           <div className='text-xs text-white/40 mt-1'>Yield</div>
         </div>
       </div>
