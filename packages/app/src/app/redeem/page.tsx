@@ -54,7 +54,7 @@ export default function RedeemPage() {
               <TradingViewWidget />
             </div>
           </div>
-          <div className='h-[700px] '
+          <div className='h-[700px]'>
             <RedeemSection />
           </div>
         </div>

@@ -54,7 +54,7 @@ export default function SplitPage() {
               <TradingViewWidget />
             </div>
           </div>
-          <div className='h-[700px] '
+          <div className='h-[700px]'>
             <SplitSection />
           </div>
         </div>
