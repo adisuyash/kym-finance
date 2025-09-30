@@ -11,7 +11,12 @@ export function PageLayout({ children }: PropsWithChildren) {
       <header className='border-b border-[#2a2a35] bg-[#0f0f16]'>
         <div className='container mx-auto px-6'>
           <div className='flex h-20 items-center justify-between'>
-            <Link href='/' className='text-2xl font-bold text-white'>
+            <Link href='/' className='flex items-center gap-3 text-2xl font-bold text-white hover:opacity-80 transition-opacity'>
+              <img 
+                src='/favicon.png' 
+                alt='Kym Finance' 
+                className='w-7 h-7 rounded-full object-cover'
+              />
               Kym Finance
             </Link>
 

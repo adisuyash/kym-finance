@@ -7,19 +7,24 @@ export default function LandingPage() {
   return (
     <div className='min-h-screen bg-[#1a1a24] flex flex-col'>
       {/* Header */}
-      <header className='border-b border-[#2a2a35] bg-[#0f0f16]'>
+      <header className='border-b border-[#2a2a35] bg-[#0f0f16] relative z-50'>
         <div className='container mx-auto px-6'>
           <div className='flex h-20 items-center justify-between'>
-            <Link href='/' className='text-2xl font-bold text-white'>
+            <Link href='/' className='flex items-center gap-3 text-2xl font-bold text-white hover:opacity-80 transition-opacity'>
+              <img
+                src='/favicon.png'
+                alt='Kym Finance'
+                className='w-7 h-7 rounded-full object-cover'
+              />
               Kym Finance
             </Link>
 
-            <nav className='hidden md:flex items-center space-x-8'>
+            <nav className='hidden md:flex items-center space-x-8 relative z-10'>
               {['deposit', 'split', 'swap', 'redeem'].map((item) => (
                 <Link
                   key={item}
                   href={`/${item}`}
-                  className='text-white/70 hover:text-white transition-colors'
+                  className='text-white/70 hover:text-white transition-colors cursor-pointer'
                 >
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </Link>
@@ -31,10 +36,10 @@ export default function LandingPage() {
       </header>
 
       {/* Hero */}
-      <main className='flex flex-1 items-center justify-center pt-0'>
+      <main className='flex flex-1 items-center justify-center pt-0 -mt-16'>
         <section className='container mx-auto px-6 text-center'>
           {/* Live Badge */}
-          <div className='inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-lg text-sm font-medium text-white/80 bg-[#2a2a35]'>
+          <div className='inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-lg text-sm font-medium text-white/80 bg-[#2a2a35]'>
             <span className='relative flex h-2 w-2'>
               <span className='absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping'></span>
               <span className='relative inline-flex h-2 w-2 rounded-full bg-green-500'></span>
@@ -42,15 +47,15 @@ export default function LandingPage() {
             Live on U2U Testnet
           </div>
 
+          {/* Title */}
+          <h1 className='mb-6 text-4xl font-bold leading-tight text-white md:text-6xl'>
+            Split U2U, <span className='text-indigo-400'>Maximize Yield</span>
+          </h1>
+
           {/* Subtitle */}
           <p className='mx-auto mb-6 max-w-2xl text-xl text-white/60'>
             A DeFi protocol to trade and maximize returns from yield-generating assets.
           </p>
-
-          {/* Title */}
-          <h1 className='mb-12 text-5xl font-bold leading-tight text-white md:text-7xl'>
-            Split U2U, <span className='text-indigo-400'>Maximize Yield</span>
-          </h1>
 
           {/* Action Buttons */}
           <div className='flex flex-wrap justify-center gap-4'>
@@ -88,6 +93,15 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className='border-t border-[#2a2a35] py-6'>
+        <div className='container mx-auto px-6 text-center'>
+          <p className='text-sm text-white/50'>
+            Built with ❤️ for VietBUIDL Hackathon · Powered by U2U Network
+          </p>
+        </div>
+      </footer>
     </div>
   )
 }
