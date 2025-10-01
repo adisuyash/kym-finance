@@ -12,6 +12,7 @@ export const CONFIG = {
 
   ETHERSCAN_API_KEY: process.env.ETHERSCAN_API_KEY ?? '',
   OPTIMISTIC_API_KEY: process.env.OPTIMISTIC_API_KEY ?? process.env.ETHERSCAN_API_KEY ?? '',
+  BASESCAN_API_KEY: process.env.BASESCAN_API_KEY ?? process.env.ETHERSCAN_API_KEY ?? '',
 }
 ;(() => {
   if (!process.env.DEPLOYER_KEY) {
@@ -26,5 +27,9 @@ export const CONFIG = {
   const OPTIMISTIC_API_KEY = process.env.OPTIMISTIC_API_KEY ?? process.env.ETHERSCAN_API_KEY ?? ''
   if (!OPTIMISTIC_API_KEY) {
     console.warn('OPTIMISTIC_API_KEY not found in .env file. Etherscan verification might fail')
+  }
+  const BASESCAN_API_KEY = process.env.BASESCAN_API_KEY ?? process.env.ETHERSCAN_API_KEY ?? ''
+  if (!BASESCAN_API_KEY) {
+    console.warn('BASESCAN_API_KEY not found in .env file. Basescan verification might fail')
   }
 })()

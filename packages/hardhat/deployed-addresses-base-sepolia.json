@@ -1,0 +1,12 @@
+{
+  "network": "baseSepolia",
+  "chainId": 84532,
+  "wrappedETH": "0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4",
+  "yieldSplitter": "0xe702013eA3045D265720337127f06a6cCab4Fd15",
+  "principalToken": "0x1179a143dA25679e9FE46b8FD5194B76d9d1AFfd",
+  "yieldToken": "0xfbbA21359Ebd8940dF2CcDb032f2093aa41f56cb",
+  "orochiOracle": "0x5158337793D9913b5967B91a32bB328521D7C7fb",
+  "mockAMM": "0x3742409450A9262d828Aaf47b422ef8693DA2eCc",
+  "deployer": "0x225d5a1079121faD050a33bDf1373bAf71aa4219",
+  "deployedAt": "2025-10-01T17:37:07.849Z"
+}

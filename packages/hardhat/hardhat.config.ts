@@ -27,14 +27,16 @@ const config: HardhatUserConfig = {
   },
   defaultNetwork: 'hardhat',
   etherscan: {
-    apiKey: {
-      mainnet: CONFIG.ETHERSCAN_API_KEY || 'dummy',
-      sepolia: CONFIG.ETHERSCAN_API_KEY || 'dummy',
-      optimisticEthereum: CONFIG.OPTIMISTIC_API_KEY || 'dummy',
-      u2uTestnet: 'dummy', // U2Uscan doesn’t require an API key
-      u2uMainnet: 'dummy',
-    },
+    apiKey: CONFIG.ETHERSCAN_API_KEY || CONFIG.BASESCAN_API_KEY || 'dummy',
     customChains: [
+      {
+        network: 'baseSepolia',
+        chainId: 84532,
+        urls: {
+          apiURL: 'https://api.etherscan.io/v2/api?chainid=84532',
+          browserURL: 'https://sepolia.basescan.org',
+        },
+      },
       {
         network: 'u2uTestnet',
         chainId: 2484,
@@ -85,6 +87,13 @@ const config: HardhatUserConfig = {
       chainId: 11155111,
       url: 'https://rpc.sepolia.org/',
       accounts: CONFIG.DEPLOYER_KEY ? [CONFIG.DEPLOYER_KEY] : [],
+    },
+    // Base Sepolia Testnet
+    baseSepolia: {
+      chainId: 84532,
+      url: 'https://sepolia.base.org',
+      accounts: CONFIG.DEPLOYER_KEY ? [CONFIG.DEPLOYER_KEY] : [],
+      gasPrice: 'auto',
     },
     mainnet: {
       chainId: 1,
