@@ -25,8 +25,8 @@ Kym Finance is a DeFi protocol that enables you to trade and maximize returns fr
 | **YieldSplitter**  | `0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4` | Core splitting logic          | [View](https://testnet.u2uscan.xyz/address/0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4) |
 | **PrincipalToken** | `0x721944D878eAF967031E4Ef1101142ccDD773cF4` | PT-wU2U token                 | [View](https://testnet.u2uscan.xyz/address/0x721944D878eAF967031E4Ef1101142ccDD773cF4) |
 | **YieldToken**     | `0xBFE70173B901Bb927F2cD23BE63964f240216f78` | YT-wU2U token                 | [View](https://testnet.u2uscan.xyz/address/0xBFE70173B901Bb927F2cD23BE63964f240216f78) |
-| **OrochiOracle**   | `0xe702013eA3045D265720337127f06a6cCab4Fd15` | Price oracle (Orochi Network) | [View](https://testnet.u2uscan.xyz/address/0xe702013eA3045D265720337127f06a6cCab4Fd15) |
-| **MockAMM**        | `0x5158337793D9913b5967B91a32bB328521D7C7fb` | PT/YT trading pool (0.3% fee) | [View](https://testnet.u2uscan.xyz/address/0x5158337793D9913b5967B91a32bB328521D7C7fb) |
+| **OrochiOracle**   | `0xe702013eA3045D265720337127f06a6cCab4Fd15` | Price feed oracle | [View](https://testnet.u2uscan.xyz/address/0xe702013eA3045D265720337127f06a6cCab4Fd15) |
+| **MockAMM**        | `0x5158337793D9913b5967B91a32bB328521D7C7fb` | Trading pool (0.3% fee) | [View](https://testnet.u2uscan.xyz/address/0x5158337793D9913b5967B91a32bB328521D7C7fb) |
 
 > For detailed network configurations, see [NETWORKS.md](NETWORKS.md)
 
