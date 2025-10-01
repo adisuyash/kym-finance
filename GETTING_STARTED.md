@@ -34,6 +34,8 @@ NEXT_PUBLIC_SITE_URL="https://your-domain.com"
 
 ## Usage Guide
 
+**Kym Finance is already deployed at:** [https://kymfinance.vercel.app](https://kymfinance.vercel.app/)
+
 ### 1. Connect Wallet
 
 - Connect MetaMask to U2U Nebulas Testnet
@@ -157,6 +159,39 @@ const handleSplit = async () => {
 ```
 
 ## Deployment
+
+#### Network Configuration
+
+- **Chain ID:** 2484
+- **Network:** U2U Nebulas Testnet (or any preferred network)
+- RPC URL: `https://rpc-nebulas-testnet.u2u.xyz`
+- Extras: [U2U Explorer](https://testnet.u2uscan.xyz/) | [U2U Faucet](https://faucet.u2u.xyz/)
+
+#### Frontend Integration
+- Addresses updated in: `packages/app/src/config/contracts.ts`  
+- Frontend automatically connects to U2U Nebulas Testnet (Chain ID: 2484)
+
+#### ABIs Location
+- Minimal ABIs: `packages/app/src/config/contracts.ts`  
+- Full ABIs: `packages/hardhat/artifacts/contracts/*/[ContractName].json`  
+- TypeChain Types: `packages/hardhat/typechain-types/`
+
+#### Verification
+```bash
+cd packages/hardhat
+npx hardhat verify --network u2uTestnet <CONTRACT_ADDRESS> [CONSTRUCTOR_ARGS]
+```
+
+Next Steps:
+- ✅ Contracts deployed successfully
+- ✅ Frontend addresses updated
+- 🔄 Optional: Run demo script
+```bash
+cd packages/hardhat
+npx hardhat run scripts/setupDemo.js --network u2uTestnet
+```
+- 🔄 Test full user flow on frontend
+- 🔄 Verify contracts on U2U Scan (optional)
 
 ### Vercel Deployment
 
