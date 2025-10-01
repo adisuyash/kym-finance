@@ -62,41 +62,11 @@ Principal     Yield
 
 </td>
 <td style="width:65%; vertical-align:top;">
-<img src="https://github.com/user-attachments/assets/febab3c6-5dd1-4d29-bc77-53acc6d2e7ea" alt="kym-finance userflow" style="width:64%; height:auto;"/>
+<img src="https://github.com/user-attachments/assets/febab3c6-5dd1-4d29-bc77-53acc6d2e7ea" alt="kym-finance userflow" style="width:100%; height:auto;"/>
 </td>
 </tr>
 </table>
 
-
-## Architecture
-
-### Smart Contracts
-
-```
-📂 contracts/
-├── YieldSplitter.sol     # Core splitting logic with Pendle pricing
-├── PrincipalToken.sol    # PT token (ERC20)
-├── YieldToken.sol        # YT token (ERC20)
-├── WrappedU2U.sol        # wU2U wrapper contract
-├── MockAMM.sol           # AMM for PT/YT trading
-└── OrochiOracle.sol      # Price oracle integration
-```
-
-### Frontend
-
-```
-📂 app/src/
-├── components/
-│   ├── SplitSection.tsx       # wU2U → PT + YT splitting
-│   ├── SwapSection.tsx        # PT ↔ YT trading
-│   ├── RedeemSection.tsx      # Token redemption & yield claiming
-│   ├── DepositSection.tsx     # U2U → wU2U wrapping
-│   └── PortfolioOverview.tsx  # Portfolio analytics
-├── config/
-│   └── contracts.ts           # Contract addresses & ABIs
-└── context/
-    └── Web3.tsx               # Wallet connection & network config
-```
 
 ## The Mathematics Behind Kym
 Kym Finance uses a **time-value discount factor** to fairly split deposited assets into principal and yield tokens.
@@ -155,6 +125,37 @@ Total: 1.0 wU2U (balanced)
 - PT trades at a discount because it’s locked until maturity
 - YT captures the yield premium and can be traded immediately
 - Together, they equal your original deposit
+
+
+## Architecture
+
+### Smart Contracts
+
+```
+📂 contracts/
+├── YieldSplitter.sol     # Core splitting logic with Pendle pricing
+├── PrincipalToken.sol    # PT token (ERC20)
+├── YieldToken.sol        # YT token (ERC20)
+├── WrappedU2U.sol        # wU2U wrapper contract
+├── MockAMM.sol           # AMM for PT/YT trading
+└── OrochiOracle.sol      # Price oracle integration
+```
+
+### Frontend
+
+```
+📂 app/src/
+├── components/
+│   ├── SplitSection.tsx       # wU2U → PT + YT splitting
+│   ├── SwapSection.tsx        # PT ↔ YT trading
+│   ├── RedeemSection.tsx      # Token redemption & yield claiming
+│   ├── DepositSection.tsx     # U2U → wU2U wrapping
+│   └── PortfolioOverview.tsx  # Portfolio analytics
+├── config/
+│   └── contracts.ts           # Contract addresses & ABIs
+└── context/
+    └── Web3.tsx               # Wallet connection & network config
+```
 
 
 ## How to Use
