@@ -11,11 +11,11 @@ interface Balance {
 }
 
 interface PortfolioOverviewProps {
-  u2uBalance?: Balance
-  wu2uBalance?: Balance
+  ethBalance?: Balance
+  wethBalance?: Balance
 }
 
-export function PortfolioOverview({ u2uBalance, wu2uBalance }: PortfolioOverviewProps) {
+export function PortfolioOverview({ ethBalance, wethBalance }: PortfolioOverviewProps) {
   const { address } = useAccount()
   const chainId = useChainId()
   const contracts = getContractAddresses(chainId)
@@ -56,8 +56,8 @@ export function PortfolioOverview({ u2uBalance, wu2uBalance }: PortfolioOverview
   const claimableYield = userPosition && Array.isArray(userPosition) && userPosition.length >= 3 ? userPosition[2] : 0n
 
   const totalPortfolioValue = () => {
-    const u2u = u2uBalance ? parseFloat(formatEther(u2uBalance.value)) : 0
-    const wu2u = wu2uBalance ? parseFloat(formatEther(wu2uBalance.value)) : 0
+    const u2u = ethBalance ? parseFloat(formatEther(ethBalance.value)) : 0
+    const wu2u = wethBalance ? parseFloat(formatEther(wethBalance.value)) : 0
     const pt = ptBalance ? parseFloat(formatEther(ptBalance)) : 0
     const yt = ytBalance ? parseFloat(formatEther(ytBalance)) : 0
     const yield_ = parseFloat(formatEther(claimableYield))
@@ -80,26 +80,26 @@ export function PortfolioOverview({ u2uBalance, wu2uBalance }: PortfolioOverview
           <div className='text-xs text-white/40 mt-1'>U2U</div>
         </div>
 
-        {/* Native U2U */}
+        {/* Native ETH */}
         <div className='bg-[#1a1a24] rounded-lg p-4'>
           <div className='flex items-center gap-2 mb-1'>
             <div className='w-2 h-2 bg-cyan-400 rounded-full'></div>
             <span className='text-xs text-white/50'>U2U</span>
           </div>
           <div className='text-xl font-bold text-white'>
-            {u2uBalance ? parseFloat(formatEther(u2uBalance.value)).toFixed(4) : '0.0000'}
+            {ethBalance ? parseFloat(formatEther(ethBalance.value)).toFixed(4) : '0.0000'}
           </div>
           <div className='text-xs text-white/40 mt-1'>Native</div>
         </div>
 
-        {/* Wrapped U2U */}
+        {/* Wrapped ETH */}
         <div className='bg-[#1a1a24] rounded-lg p-4'>
           <div className='flex items-center gap-2 mb-1'>
             <div className='w-2 h-2 bg-blue-400 rounded-full'></div>
             <span className='text-xs text-white/50'>wU2U</span>
           </div>
           <div className='text-xl font-bold text-white'>
-            {wu2uBalance ? parseFloat(formatEther(wu2uBalance.value)).toFixed(4) : '0.0000'}
+            {wethBalance ? parseFloat(formatEther(wethBalance.value)).toFixed(4) : '0.0000'}
           </div>
           <div className='text-xs text-white/40 mt-1'>Wrapped</div>
         </div>

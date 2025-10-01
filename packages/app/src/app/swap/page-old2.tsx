@@ -14,13 +14,13 @@ export default function SwapPage() {
   const contracts = getContractAddresses(chainId)
 
   // Get balances
-  const { data: u2uBalance } = useBalance({
+  const { data: ethBalance } = useBalance({
     address: address,
   })
 
-  const { data: wu2uBalance } = useBalance({
+  const { data: wethBalance } = useBalance({
     address: address,
-    token: contracts.wrappedU2U,
+    token: contracts.weth,
   })
 
   // Get user position
@@ -49,8 +49,8 @@ export default function SwapPage() {
           <div className='space-y-6'>
             <PortfolioOverview
               userPosition={userPosition as readonly [bigint, bigint, bigint] | undefined}
-              u2uBalance={u2uBalance}
-              wu2uBalance={wu2uBalance}
+              ethBalance={ethBalance}
+              wethBalance={wethBalance}
             />
           </div>
         </div>

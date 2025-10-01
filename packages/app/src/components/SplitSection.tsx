@@ -11,7 +11,7 @@ import {
 } from 'wagmi'
 import { parseEther, formatEther } from 'viem'
 import { toast } from 'react-hot-toast'
-import { getContractAddresses, YIELD_SPLITTER_ABI, WRAPPED_U2U_ABI, TOKEN_ABI } from '../config/contracts'
+import { getContractAddresses, YIELD_SPLITTER_ABI, WETH_ABI, TOKEN_ABI } from '../config/contracts'
 
 export function SplitSection() {
   const [splitAmount, setSplitAmount] = useState('')
@@ -26,9 +26,9 @@ export function SplitSection() {
   const contracts = getContractAddresses(chainId)
 
   // Get wU2U balance
-  const { data: wu2uBalance, refetch: refetchWu2uBalance } = useBalance({
+  const { data: wethBalance, refetch: refetchWethBalance } = useBalance({
     address,
-    token: contracts.wrappedU2U,
+    token: contracts.weth,
   })
 
   // Get PT and YT balances to show after split
@@ -56,8 +56,8 @@ export function SplitSection() {
 
   // Check current allowance
   const { data: currentAllowance, refetch: refetchAllowance } = useReadContract({
-    address: contracts.wrappedU2U,
-    abi: WRAPPED_U2U_ABI,
+    address: contracts.weth,
+    abi: WETH_ABI,
     functionName: 'allowance',
     args: address ? [address, contracts.yieldSplitter] : undefined,
   })
@@ -70,7 +70,7 @@ export function SplitSection() {
   console.log('Contract addresses:', contracts)
   console.log('PT Balance:', ptBalance, 'Error:', ptError)
   console.log('YT Balance:', ytBalance, 'Error:', ytError)
-  console.log('wU2U Balance:', wu2uBalance)
+  console.log('wU2U Balance:', wethBalance)
   console.log('Split Amount:', splitAmount)
   console.log('Required Amount (wei):', requiredAmount.toString())
   console.log('Current Allowance (wei):', currentAllowance?.toString())
@@ -80,7 +80,7 @@ export function SplitSection() {
   useEffect(() => {
     if (isConfirming === false && hash) {
       // Transaction completed, refresh all balances and allowance
-      refetchWu2uBalance()
+      refetchWethBalance()
       refetchPtBalance()
       refetchYtBalance()
       refetchAllowance()
@@ -91,7 +91,7 @@ export function SplitSection() {
 
       toast.success('Transaction completed successfully!')
     }
-  }, [isConfirming, hash, refetchWu2uBalance, refetchPtBalance, refetchYtBalance, refetchAllowance])
+  }, [isConfirming, hash, refetchWethBalance, refetchPtBalance, refetchYtBalance, refetchAllowance])
 
   const handleApprove = async () => {
     if (!splitAmount || parseFloat(splitAmount) <= 0) {
@@ -102,8 +102,8 @@ export function SplitSection() {
     try {
       setIsApproving(true)
       await writeContract({
-        address: contracts.wrappedU2U,
-        abi: WRAPPED_U2U_ABI,
+        address: contracts.weth,
+        abi: WETH_ABI,
         functionName: 'approve',
         args: [contracts.yieldSplitter, parseEther(splitAmount)],
       })
@@ -140,8 +140,8 @@ export function SplitSection() {
   }
 
   const setMaxAmount = () => {
-    if (wu2uBalance) {
-      setSplitAmount(formatEther(wu2uBalance.value))
+    if (wethBalance) {
+      setSplitAmount(formatEther(wethBalance.value))
     }
   }
 
@@ -200,9 +200,9 @@ export function SplitSection() {
           <div className='stat bg-base-200 rounded-lg'>
             <div className='stat-title'>wU2U Balance</div>
             <div className='stat-value text-lg'>
-              {wu2uBalance ? parseFloat(formatEther(wu2uBalance.value)).toFixed(4) : '0.0000'}
+              {wethBalance ? parseFloat(formatEther(wethBalance.value)).toFixed(4) : '0.0000'}
             </div>
-            <div className='stat-desc text-xs'>{contracts.wrappedU2U.slice(0, 8)}...</div>
+            <div className='stat-desc text-xs'>{contracts.weth.slice(0, 8)}...</div>
           </div>
 
           <div className='stat bg-primary/10 rounded-lg'>

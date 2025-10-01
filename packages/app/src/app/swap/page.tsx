@@ -22,13 +22,13 @@ export default function SwapPage() {
   const chainId = useChainId()
   const contracts = getContractAddresses(chainId)
 
-  const { data: u2uBalance } = useBalance({ 
+  const { data: ethBalance } = useBalance({ 
     address: address,
     query: { refetchInterval: 3000 }
   })
-  const { data: wu2uBalance } = useBalance({ 
+  const { data: wethBalance } = useBalance({ 
     address: address, 
-    token: contracts.wrappedU2U,
+    token: contracts.weth,
     query: { refetchInterval: 3000 }
   })
 
@@ -50,8 +50,8 @@ export default function SwapPage() {
         <div className='mb-6'>
           <PortfolioOverview
             
-            u2uBalance={u2uBalance}
-            wu2uBalance={wu2uBalance}
+            ethBalance={ethBalance}
+            wethBalance={wethBalance}
           />
         </div>
 

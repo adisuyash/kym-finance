@@ -16,7 +16,7 @@ export function NetworkGuard({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (isWrongNetwork) {
       toast.error(
-        `Wrong network detected! Please switch to U2U Nebulas Testnet (Chain ID: ${U2U_TESTNET_CHAIN_ID})`,
+        `Wrong network detected! Please switch to ETH Nebulas Testnet (Chain ID: ${U2U_TESTNET_CHAIN_ID})`,
         {
           duration: 6000,
           position: 'top-center',
@@ -57,7 +57,7 @@ export function NetworkGuard({ children }: { children: React.ReactNode }) {
             <h3 className="font-semibold text-emerald-900 mb-2">Network Details:</h3>
             <div className="text-sm text-emerald-800 space-y-1">
               <p>
-                <span className="font-medium">Name:</span> U2U Nebulas Testnet
+                <span className="font-medium">Name:</span> ETH Nebulas Testnet
               </p>
               <p>
                 <span className="font-medium">Chain ID:</span> 2484
@@ -75,7 +75,7 @@ export function NetworkGuard({ children }: { children: React.ReactNode }) {
             onClick={() => switchChain?.({ chainId: U2U_TESTNET_CHAIN_ID })}
             className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 mb-3"
           >
-            Switch to U2U Nebulas Testnet
+            Switch to ETH Nebulas Testnet
           </button>
 
           <p className="text-xs text-gray-500">

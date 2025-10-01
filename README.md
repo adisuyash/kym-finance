@@ -2,7 +2,7 @@
 
 KYM Finance is a DeFi protocol that enables you to trade and maximize returns from yield-generating assets.
 
-![Kym Finance](https://img.shields.io/badge/U2U-Nebulas%20Testnet-darkgreen) 
+![Kym Finance](https://img.shields.io/badge/Base-Sepolia-blue) 
 ![Solidity](https://img.shields.io/badge/Solidity-0.8.17-purple) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black)
@@ -15,28 +15,27 @@ KYM Finance is a DeFi protocol that enables you to trade and maximize returns fr
 
 ### Network Configuration
 
-- **Chain ID**: `2484`
-- **Currency**: U2U
-- **Network Name**: U2U Nebulas Testnet
-- **RPC URL**: `https://rpc-nebulas-testnet.u2u.xyz/`
+- **Chain ID**: `84532`
+- **Currency**: ETH
+- **Network Name**: Base Sepolia Testnet
+- **RPC URL**: `https://sepolia.base.org`
 
-**Quick Links:** [U2U Testnet Explorer](https://testnet.u2uscan.xyz) | [U2U Faucet](https://faucet.u2u.xyz)
+**Quick Links:** [Base Sepolia Explorer](https://sepolia.basescan.org) | [Base Sepolia Faucet](https://www.coinbase.com/faucets/base-ethereum-goerli-faucet)
+
 | Contract           | Address                                      | Purpose                       | Explorer Link |
 | ------------------ | -------------------------------------------- | ----------------------------- |---------------|
-| **WrappedU2U**     | `0x31c13bed4969a135bE285Bcb7BfDc56b601EaA43` | U2U wrapper token             | [View](https://testnet.u2uscan.xyz/address/0x31c13bed4969a135bE285Bcb7BfDc56b601EaA43) |
-| **YieldSplitter**  | `0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4` | Core splitting logic          | [View](https://testnet.u2uscan.xyz/address/0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4) |
-| **PrincipalToken** | `0x721944D878eAF967031E4Ef1101142ccDD773cF4` | PT-wU2U token                 | [View](https://testnet.u2uscan.xyz/address/0x721944D878eAF967031E4Ef1101142ccDD773cF4) |
-| **YieldToken**     | `0xBFE70173B901Bb927F2cD23BE63964f240216f78` | YT-wU2U token                 | [View](https://testnet.u2uscan.xyz/address/0xBFE70173B901Bb927F2cD23BE63964f240216f78) |
-| **OrochiOracle**   | `0xe702013eA3045D265720337127f06a6cCab4Fd15` | Price feed oracle | [View](https://testnet.u2uscan.xyz/address/0xe702013eA3045D265720337127f06a6cCab4Fd15) |
-| **MockAMM**        | `0x5158337793D9913b5967B91a32bB328521D7C7fb` | Trading pool (0.3% fee) | [View](https://testnet.u2uscan.xyz/address/0x5158337793D9913b5967B91a32bB328521D7C7fb) |
-
-> For detailed network configurations, see [NETWORKS.md](NETWORKS.md)
+| **WETH**           | `0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4` | ETH wrapper token             | [View](https://sepolia.basescan.org/address/0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4) |
+| **YieldSplitter**  | `0xe702013eA3045D265720337127f06a6cCab4Fd15` | Core splitting logic          | [View](https://sepolia.basescan.org/address/0xe702013eA3045D265720337127f06a6cCab4Fd15) |
+| **PrincipalToken** | `0x1179a143dA25679e9FE46b8FD5194B76d9d1AFfd` | PT-WETH token                 | [View](https://sepolia.basescan.org/address/0x1179a143dA25679e9FE46b8FD5194B76d9d1AFfd) |
+| **YieldToken**     | `0xfbbA21359Ebd8940dF2CcDb032f2093aa41f56cb` | YT-WETH token                 | [View](https://sepolia.basescan.org/address/0xfbbA21359Ebd8940dF2CcDb032f2093aa41f56cb) |
+| **OrochiOracle**   | `0x5158337793D9913b5967B91a32bB328521D7C7fb` | Price feed oracle             | [View](https://sepolia.basescan.org/address/0x5158337793D9913b5967B91a32bB328521D7C7fb) |
+| **MockAMM**        | `0x3742409450A9262d828Aaf47b422ef8693DA2eCc` | Trading pool (0.3% fee)       | [View](https://sepolia.basescan.org/address/0x3742409450A9262d828Aaf47b422ef8693DA2eCc) |
 
 
 ## How it works
 
-1. **Deposit U2U** and **wrap it to wU2U**
-2. **Split wU2U** into **PT (principal) + YT (yield)**
+1. **Deposit ETH** and **wrap it to WETH**
+2. **Split WETH** into **PT (principal) + YT (yield)**
 3. **Trade PT/YT on the AMM** or hold for yield
 4. **Redeem** anytime or wait for maturity
 
@@ -46,11 +45,11 @@ KYM Finance is a DeFi protocol that enables you to trade and maximize returns fr
 <td style="width:35%; vertical-align:top; padding-right:10px;">
 
 <pre>
-   Your Asset (U2U)
+   Your Asset (ETH)
           ↓
        [Wrap]
           ↓
-Wrapped Asset (wU2U)
+Wrapped Asset (WETH)
           ↓
       [Split]
           ↓
@@ -59,7 +58,7 @@ Wrapped Asset (wU2U)
    PT           YT
   (95%)        (5%)
 Principal     Yield
-(PT-wU2U)   (YT-wU2U)
+(PT-WETH)    (YT-WETH)
 </pre>
 
 </td>
@@ -110,16 +109,16 @@ function calculatePendlePricing(uint256 amount) public view returns (uint256 ptA
 
 
 ### Example
-Deposit **1.0 wU2U** with **5% APY** and **1 year maturity**:
+Deposit **1.0 WETH** with **5% APY** and **1 year maturity**:
 
 ```
-Input: 1.0 wU2U
+Input: 1.0 WETH
      ↓
 You receive:
    • 0.9524 PT (95.24%) - Principal
    • 0.0476 YT (4.76%) - Yield
      ↓
-Total: 1.0 wU2U (balanced)
+Total: 1.0 WETH (balanced)
 ```
 
 
@@ -138,7 +137,7 @@ Total: 1.0 wU2U (balanced)
 ├── YieldSplitter.sol     # Core splitting logic with Pendle pricing
 ├── PrincipalToken.sol    # PT token (ERC20)
 ├── YieldToken.sol        # YT token (ERC20)
-├── WrappedU2U.sol        # wU2U wrapper contract
+├── WETH.sol              # WETH wrapper contract
 ├── MockAMM.sol           # AMM for PT/YT trading
 └── OrochiOracle.sol      # Price oracle integration
 ```
@@ -148,10 +147,10 @@ Total: 1.0 wU2U (balanced)
 ```
 📂 app/src/
 ├── components/
-│   ├── SplitSection.tsx       # wU2U → PT + YT splitting
+│   ├── SplitSection.tsx       # WETH → PT + YT splitting
 │   ├── SwapSection.tsx        # PT ↔ YT trading
 │   ├── RedeemSection.tsx      # Token redemption & yield claiming
-│   ├── DepositSection.tsx     # U2U → wU2U wrapping
+│   ├── DepositSection.tsx     # ETH → WETH wrapping
 │   └── PortfolioOverview.tsx  # Portfolio analytics
 ├── config/
 │   └── contracts.ts           # Contract addresses & ABIs

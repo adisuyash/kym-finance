@@ -10,7 +10,7 @@ export interface ContractAddresses {
   mockAMM: `0x${string}`
 }
 
-// U2U Nebulas Testnet (Chain ID: 2484) - Deployed Addresses
+// ETH Nebulas Testnet (Chain ID: 2484) - Deployed Addresses
 // Deployed: 2025-09-30T12:54:40.271Z
 export const U2U_TESTNET_ADDRESSES: ContractAddresses = {
   wrappedU2U: '0x31c13bed4969a135bE285Bcb7BfDc56b601EaA43',
@@ -35,12 +35,12 @@ export const LOCAL_ADDRESSES: ContractAddresses = {
 // Get contract addresses based on chain ID
 export function getContractAddresses(chainId: number): ContractAddresses {
   switch (chainId) {
-    case 2484: // U2U Nebulas Testnet
+    case 2484: // ETH Nebulas Testnet
       return U2U_TESTNET_ADDRESSES
     case 31337: // Local Hardhat
       return LOCAL_ADDRESSES
     default:
-      console.warn(`Unsupported chain ID: ${chainId}, falling back to U2U Nebulas Testnet`)
+      console.warn(`Unsupported chain ID: ${chainId}, falling back to ETH Nebulas Testnet`)
       return U2U_TESTNET_ADDRESSES
   }
 }
@@ -124,7 +124,7 @@ export const YIELD_SPLITTER_ABI = [
   },
 ]
 
-export const WRAPPED_U2U_ABI = [
+export const WETH_ABI = [
   {
     name: 'deposit',
     type: 'function',

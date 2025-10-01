@@ -44,7 +44,7 @@ export default function LandingPage() {
               <span className='absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping'></span>
               <span className='relative inline-flex h-2 w-2 rounded-full bg-green-500'></span>
             </span>
-            Live on U2U Testnet
+            Live on ETH Testnet
           </div>
 
           {/* Title */}
@@ -84,7 +84,7 @@ export default function LandingPage() {
             { value: '5%', label: 'APY' },
             { value: '0.3%', label: 'Trading Fee' },
             { value: '1 Year', label: 'Maturity' },
-            { value: 'U2U', label: 'Native' },
+            { value: 'ETH', label: 'Native' },
           ].map((stat) => (
             <div key={stat.label} className='rounded-lg bg-[#0f0f16] p-6'>
               <div className='mb-2 text-3xl font-bold text-white'>{stat.value}</div>
@@ -98,7 +98,7 @@ export default function LandingPage() {
       <footer className='border-t border-[#2a2a35] py-6'>
         <div className='container mx-auto px-6 text-center'>
           <p className='text-sm text-white/50'>
-            Built with ❤️ for VietBUIDL Hackathon · Powered by U2U Network
+            Built with ❤️ for VietBUIDL Hackathon · Powered by ETH Network
           </p>
         </div>
       </footer>

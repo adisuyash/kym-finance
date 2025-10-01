@@ -22,7 +22,7 @@ const metadata = {
 createAppKit({
   adapters: [WALLETCONNECT_ADAPTER],
   projectId: WALLETCONNECT_PROJECT_ID,
-  networks: [u2uTestnet], // Only U2U Nebulas Testnet for this deployment
+  networks: [u2uTestnet], // Only ETH Nebulas Testnet for this deployment
   defaultNetwork: u2uTestnet,
   metadata: metadata,
   features: {

@@ -23,14 +23,14 @@ export default function DepositPage() {
   const chainId = useChainId()
   const contracts = getContractAddresses(chainId)
 
-  // Get U2U and wU2U balances
-  const { data: u2uBalance } = useBalance({
+  // Get ETH and wU2U balances
+  const { data: ethBalance } = useBalance({
     address: address,
   })
 
-  const { data: wu2uBalance } = useBalance({
+  const { data: wethBalance } = useBalance({
     address: address,
-    token: contracts.wrappedU2U,
+    token: contracts.weth,
   })
 
   return (
@@ -39,12 +39,12 @@ export default function DepositPage() {
         {/* Page Header */}
         <div className='mb-6'>
           <h1 className='text-4xl font-bold mb-3 text-white'>Deposit U2U</h1>
-          <p className='text-white/60 text-lg'>Wrap your U2U into wU2U to start yield splitting</p>
+          <p className='text-white/60 text-lg'>Wrap your ETH into wU2U to start yield splitting</p>
         </div>
 
         {/* Portfolio Overview - Horizontal */}
         <div className='mb-6'>
-          <PortfolioOverview u2uBalance={u2uBalance} wu2uBalance={wu2uBalance} />
+          <PortfolioOverview ethBalance={ethBalance} wethBalance={wethBalance} />
         </div>
 
         {/* Main Layout - Chart on Left, Actions on Right */}

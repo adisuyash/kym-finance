@@ -37,15 +37,15 @@ export function YieldSplittingDashboard(): React.JSX.Element {
   })
 
   // Get user balances
-  const { data: u2uBalance, refetch: refetchU2UBalance } = useBalance({ address })
-  const { data: wu2uBalance, refetch: refetchWu2uBalance } = useBalance({ address, token: contracts.wrappedU2U })
+  const { data: ethBalance, refetch: refetchEthBalance } = useBalance({ address })
+  const { data: wethBalance, refetch: refetchWethBalance } = useBalance({ address, token: contracts.weth })
 
   // Refresh all data periodically to catch transaction updates
   const refreshAllData = useCallback(() => {
     refetchUserPosition()
-    refetchU2UBalance()
-    refetchWu2uBalance()
-  }, [refetchU2UBalance, refetchUserPosition, refetchWu2uBalance])
+    refetchEthBalance()
+    refetchWethBalance()
+  }, [refetchEthBalance, refetchUserPosition, refetchWethBalance])
 
   // Auto-refresh every 10 seconds when connected
   React.useEffect(() => {
@@ -143,8 +143,8 @@ export function YieldSplittingDashboard(): React.JSX.Element {
             {/* Portfolio Overview */}
             <PortfolioOverview
               userPosition={userPosition as readonly [bigint, bigint, bigint] | undefined}
-              u2uBalance={u2uBalance}
-              wu2uBalance={wu2uBalance}
+              ethBalance={ethBalance}
+              wethBalance={wethBalance}
             />
 
             {/* Price Chart */}
