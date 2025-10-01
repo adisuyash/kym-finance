@@ -11,7 +11,6 @@ export const CONFIG = {
   INFURA_API_KEY: process.env.INFURA_API_KEY ?? '',
 
   ETHERSCAN_API_KEY: process.env.ETHERSCAN_API_KEY ?? '',
-  OPTIMISTIC_API_KEY: process.env.OPTIMISTIC_API_KEY ?? process.env.ETHERSCAN_API_KEY ?? '',
   BASESCAN_API_KEY: process.env.BASESCAN_API_KEY ?? process.env.ETHERSCAN_API_KEY ?? '',
 }
 ;(() => {
@@ -21,15 +20,7 @@ export const CONFIG = {
   if (!process.env.INFURA_API_KEY) {
     console.warn('INFURA_API_KEY not found in .env file.')
   }
-  if (!process.env.ETHERSCAN_API_KEY) {
-    console.warn('ETHERSCAN_API_KEY not found in .env file. Etherscan verification might fail')
-  }
-  const OPTIMISTIC_API_KEY = process.env.OPTIMISTIC_API_KEY ?? process.env.ETHERSCAN_API_KEY ?? ''
-  if (!OPTIMISTIC_API_KEY) {
-    console.warn('OPTIMISTIC_API_KEY not found in .env file. Etherscan verification might fail')
-  }
-  const BASESCAN_API_KEY = process.env.BASESCAN_API_KEY ?? process.env.ETHERSCAN_API_KEY ?? ''
-  if (!BASESCAN_API_KEY) {
-    console.warn('BASESCAN_API_KEY not found in .env file. Basescan verification might fail')
+  if (!process.env.ETHERSCAN_API_KEY && !process.env.BASESCAN_API_KEY) {
+    console.warn('ETHERSCAN_API_KEY or BASESCAN_API_KEY not found in .env file. Contract verification might fail')
   }
 })()

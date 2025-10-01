@@ -37,22 +37,6 @@ const config: HardhatUserConfig = {
           browserURL: 'https://sepolia.basescan.org',
         },
       },
-      {
-        network: 'u2uTestnet',
-        chainId: 2484,
-        urls: {
-          apiURL: 'https://testnet.u2uscan.xyz/api',
-          browserURL: 'https://testnet.u2uscan.xyz',
-        },
-      },
-      {
-        network: 'u2uMainnet',
-        chainId: 39,
-        urls: {
-          apiURL: 'https://u2uscan.xyz/api',
-          browserURL: 'https://u2uscan.xyz',
-        },
-      },
     ],
   },
   sourcify: {
@@ -66,34 +50,25 @@ const config: HardhatUserConfig = {
       chainId: 31337,
       url: 'http://127.0.0.1:8545',
     },
-    // U2U Testnet (Nebulas)
-    u2uTestnet: {
-      chainId: 2484,
-      url: 'https://rpc-nebulas-testnet.u2u.xyz/',
-      accounts: CONFIG.DEPLOYER_KEY ? [CONFIG.DEPLOYER_KEY] : [],
-      gasPrice: 'auto',
-      gas: 'auto',
-    },
-    // U2U Mainnet (Solaris)
-    u2uMainnet: {
-      chainId: 39,
-      url: 'https://rpc-mainnet.u2u.xyz',
-      accounts: CONFIG.DEPLOYER_KEY ? [CONFIG.DEPLOYER_KEY] : [],
-      gasPrice: 'auto',
-      gas: 'auto',
-    },
-    // Keep ETH networks if needed
-    sepolia: {
-      chainId: 11155111,
-      url: 'https://rpc.sepolia.org/',
-      accounts: CONFIG.DEPLOYER_KEY ? [CONFIG.DEPLOYER_KEY] : [],
-    },
-    // Base Sepolia Testnet
+    // Base Sepolia Testnet (Primary Network)
     baseSepolia: {
       chainId: 84532,
       url: 'https://sepolia.base.org',
       accounts: CONFIG.DEPLOYER_KEY ? [CONFIG.DEPLOYER_KEY] : [],
       gasPrice: 'auto',
+    },
+    // Base Mainnet
+    base: {
+      chainId: 8453,
+      url: 'https://mainnet.base.org',
+      accounts: CONFIG.DEPLOYER_KEY ? [CONFIG.DEPLOYER_KEY] : [],
+      gasPrice: 'auto',
+    },
+    // Ethereum networks (for reference)
+    sepolia: {
+      chainId: 11155111,
+      url: 'https://rpc.sepolia.org/',
+      accounts: CONFIG.DEPLOYER_KEY ? [CONFIG.DEPLOYER_KEY] : [],
     },
     mainnet: {
       chainId: 1,

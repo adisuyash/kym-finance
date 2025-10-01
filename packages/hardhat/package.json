@@ -5,10 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "hardhat compile",
-    "deploy": "npx hardhat ignition deploy ./ignition/modules/Message.ts --verify --deployment-id message",
-    "deploy:nft": "npx hardhat ignition deploy ./ignition/modules/NFT.ts",
+    "deploy": "npx hardhat run scripts/deployToBaseSepolia.js --network baseSepolia",
     "deploy:base-sepolia": "npx hardhat run scripts/deployToBaseSepolia.js --network baseSepolia",
-    "deploy:u2u": "npx hardhat run scripts/deployToU2UTestnet.js --network u2uTestnet",
     "verify": "npx hardhat verify",
     "coverage": "SOLIDITY_COVERAGE=true npx hardhat coverage",
     "test": "REPORT_GAS=true hardhat test"

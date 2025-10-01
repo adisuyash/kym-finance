@@ -15,25 +15,25 @@ async function main() {
   }
 
   console.log("\n📋 Deployment Plan:");
-  console.log("1. WrappedU2U (as WrappedETH for Base)");
+  console.log("1. WETH (Wrapped Ether)");
   console.log("2. YieldSplitter (auto-deploys PT and YT)");
   console.log("3. OrochiOracle");
   console.log("4. MockAMM");
 
-  // 1. Deploy WrappedU2U (using as WrappedETH on Base)
-  console.log("\n💎 Step 1: Deploying WrappedETH...");
-  const WrappedU2U = await ethers.getContractFactory("WrappedU2U");
-  const wrappedETH = await WrappedU2U.deploy();
-  await wrappedETH.waitForDeployment();
-  const wrappedETHAddress = await wrappedETH.getAddress();
-  console.log("✅ WrappedETH deployed to:", wrappedETHAddress);
+  // 1. Deploy WETH
+  console.log("\n💎 Step 1: Deploying WETH...");
+  const WETH = await ethers.getContractFactory("WETH");
+  const weth = await WETH.deploy();
+  await weth.waitForDeployment();
+  const wethAddress = await weth.getAddress();
+  console.log("✅ WETH deployed to:", wethAddress);
 
   // 2. Deploy YieldSplitter (1 year maturity)
   console.log("\n✂️ Step 2: Deploying YieldSplitter...");
   const maturityDuration = 365 * 24 * 60 * 60; // 1 year
   const yieldPercentage = 500; // 5% APY in basis points
   const YieldSplitter = await ethers.getContractFactory("YieldSplitter");
-  const yieldSplitter = await YieldSplitter.deploy(wrappedETHAddress, maturityDuration, yieldPercentage);
+  const yieldSplitter = await YieldSplitter.deploy(wethAddress, maturityDuration, yieldPercentage);
   await yieldSplitter.waitForDeployment();
   const yieldSplitterAddress = await yieldSplitter.getAddress();
   console.log("✅ YieldSplitter deployed to:", yieldSplitterAddress);
@@ -64,7 +64,7 @@ async function main() {
   console.log("\n🎉 Deployment Complete!");
   console.log("\n📋 Contract Addresses Summary:");
   console.log("=====================================");
-  console.log(`WrappedETH:      ${wrappedETHAddress}`);
+  console.log(`WETH:            ${wethAddress}`);
   console.log(`YieldSplitter:   ${yieldSplitterAddress}`);
   console.log(`PrincipalToken:  ${ptAddress}`);
   console.log(`YieldToken:      ${ytAddress}`);
@@ -80,7 +80,7 @@ async function main() {
 
   console.log("\n📝 Frontend Configuration:");
   console.log("Update these addresses in your frontend components:");
-  console.log(`const WRAPPED_ETH_ADDRESS = '${wrappedETHAddress}' as const`);
+  console.log(`const WETH_ADDRESS = '${wethAddress}' as const`);
   console.log(`const YIELD_SPLITTER_ADDRESS = '${yieldSplitterAddress}' as const`);
   console.log(`const PRINCIPAL_TOKEN_ADDRESS = '${ptAddress}' as const`);
   console.log(`const YIELD_TOKEN_ADDRESS = '${ytAddress}' as const`);
@@ -89,8 +89,8 @@ async function main() {
 
   console.log("\n🚀 Next Steps:");
   console.log("1. Verify contracts on Basescan:");
-  console.log(`   npx hardhat verify --network baseSepolia ${wrappedETHAddress}`);
-  console.log(`   npx hardhat verify --network baseSepolia ${yieldSplitterAddress} ${wrappedETHAddress} ${maturityDuration} ${yieldPercentage}`);
+  console.log(`   npx hardhat verify --network baseSepolia ${wethAddress}`);
+  console.log(`   npx hardhat verify --network baseSepolia ${yieldSplitterAddress} ${wethAddress} ${maturityDuration} ${yieldPercentage}`);
   console.log(`   npx hardhat verify --network baseSepolia ${OracleAddress}`);
   console.log(`   npx hardhat verify --network baseSepolia ${mockAMMAddress} ${ptAddress} ${ytAddress}`);
   console.log("2. Update contract addresses in frontend components");
@@ -100,7 +100,7 @@ async function main() {
   const addresses = {
     network: "baseSepolia",
     chainId: 84532,
-    wrappedETH: wrappedETHAddress,
+    weth: wethAddress,
     yieldSplitter: yieldSplitterAddress,
     principalToken: ptAddress,
     yieldToken: ytAddress,

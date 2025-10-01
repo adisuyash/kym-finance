@@ -1,35 +1,31 @@
-// import { mainnet, arbitrum, base, polygon, optimism } from '@reown/appkit/networks'
-// import { sepolia } from '@reown/appkit/networks'
-
-// U2U Nebulas Testnet configuration
-// Using the same structure as other networks to avoid TypeScript issues
-export const u2uTestnet = {
-  id: 2484,
-  name: 'U2U Nebulas Testnet',
+// Base Sepolia Testnet configuration
+export const baseSepolia = {
+  id: 84532,
+  name: 'Base Sepolia',
   nativeCurrency: {
     decimals: 18,
-    name: 'U2UNetwork',
-    symbol: 'U2U',
+    name: 'Ether',
+    symbol: 'ETH',
   },
   rpcUrls: {
     default: {
-      http: ['https://rpc-nebulas-testnet.u2u.xyz/'],
+      http: ['https://sepolia.base.org'],
     },
     public: {
-      http: ['https://rpc-nebulas-testnet.u2u.xyz/'],
+      http: ['https://sepolia.base.org'],
     },
   },
   blockExplorers: {
     default: {
-      name: 'U2U Nebulas Testnet Explorer',
-      url: 'https://testnet.u2uscan.xyz/',
+      name: 'Basescan',
+      url: 'https://sepolia.basescan.org',
     },
   },
   testnet: true,
 } as const
 
-// Only U2U Nebulas Testnet for this deployment
-export const ETH_CHAINS = [u2uTestnet]
+// Base Sepolia as primary network
+export const ETH_CHAINS = [baseSepolia]
 
 export const NETWORK_COLORS = {
   u2u: {
