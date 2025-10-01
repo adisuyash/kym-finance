@@ -6,6 +6,9 @@ import '@nomicfoundation/hardhat-verify'
 import '@typechain/hardhat'
 import { CONFIG } from './utils/config'
 
+// Suppress Node.js version warning
+process.removeAllListeners('warning')
+
 const config: HardhatUserConfig = {
   solidity: {
     version: '0.8.17',
