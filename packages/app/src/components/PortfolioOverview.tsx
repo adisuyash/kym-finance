@@ -96,7 +96,7 @@ export function PortfolioOverview({ ethBalance, wethBalance }: PortfolioOverview
         <div className='bg-[#1a1a24] rounded-lg p-4'>
           <div className='flex items-center gap-2 mb-1'>
             <div className='w-2 h-2 bg-blue-400 rounded-full'></div>
-            <span className='text-xs text-white/50'>wU2U</span>
+            <span className='text-xs text-white/50'>WETH</span>
           </div>
           <div className='text-xl font-bold text-white'>
             {wethBalance ? parseFloat(formatEther(wethBalance.value)).toFixed(4) : '0.0000'}
@@ -132,7 +132,7 @@ export function PortfolioOverview({ ethBalance, wethBalance }: PortfolioOverview
             <div className='w-2 h-2 bg-green-400 rounded-full animate-pulse'></div>
             <span className='text-sm text-white/70'>Claimable Yield</span>
           </div>
-          <span className='text-lg font-bold text-green-400'>{parseFloat(formatEther(claimableYield)).toFixed(6)} wU2U</span>
+          <span className='text-lg font-bold text-green-400'>{parseFloat(formatEther(claimableYield)).toFixed(6)} WETH</span>
         </div>
       )}
     </div>

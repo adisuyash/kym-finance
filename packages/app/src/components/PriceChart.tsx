@@ -70,14 +70,14 @@ export function PriceChart() {
     address: OROCHI_ORACLE_ADDRESS,
     abi: OROCHI_ORACLE_ABI,
     functionName: 'getLatestPrice',
-    args: ['PT-wU2U/USD'],
+    args: ['PT-WETH/USD'],
   })
 
   const { data: ytPrice } = useReadContract({
     address: OROCHI_ORACLE_ADDRESS,
     abi: OROCHI_ORACLE_ABI,
     functionName: 'getLatestPrice',
-    args: ['YT-wU2U/USD'],
+    args: ['YT-WETH/USD'],
   })
 
   // Get AMM pool info

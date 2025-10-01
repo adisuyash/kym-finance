@@ -13,7 +13,7 @@ MockAMM:         0x5158337793D9913b5967B91a32bB328521D7C7fb
 
 ## 🌐 Network Info
 
-- **Chain ID:** 2484
+- **Chain ID:** 84532
 - **RPC:** https://rpc-nebulas-testnet.eth.xyz/
 - **Explorer:** https://testnet.ethscan.xyz/
 - **Faucet:** https://faucet.eth.xyz/
@@ -22,7 +22,7 @@ MockAMM:         0x5158337793D9913b5967B91a32bB328521D7C7fb
 
 **Addresses updated in:** `packages/app/src/config/contracts.ts`
 
-The frontend automatically uses these addresses when connected to Chain ID 2484.
+The frontend automatically uses these addresses when connected to Chain ID 84532.
 
 ## 🧪 Test the App
 

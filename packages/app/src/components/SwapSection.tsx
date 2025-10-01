@@ -313,7 +313,7 @@ export function SwapSection() {
             <button className='btn btn-outline btn-sm' onClick={setMaxAmount}>
               Max
             </button>
-            <div className='btn btn-ghost btn-sm cursor-default'>{fromToken}-wU2U</div>
+            <div className='btn btn-ghost btn-sm cursor-default'>{fromToken}-WETH</div>
           </div>
         </div>
 
@@ -348,7 +348,7 @@ export function SwapSection() {
           </label>
           <div className='input-group'>
             <input type='number' placeholder='0.0' className='input input-bordered flex-1' value={toAmount} readOnly />
-            <div className='btn btn-ghost btn-sm cursor-default'>{toToken}-wU2U</div>
+            <div className='btn btn-ghost btn-sm cursor-default'>{toToken}-WETH</div>
           </div>
         </div>
 
@@ -478,7 +478,7 @@ export function SwapSection() {
                 ? 'Processing...'
                 : poolInfo && poolInfo.length >= 2 && poolInfo[0] === 0n && poolInfo[1] === 0n
                   ? 'Pool Not Ready'
-                  : `Approve ${fromToken}-wU2U`}
+                  : `Approve ${fromToken}-WETH`}
             </button>
           ) : (
             <button

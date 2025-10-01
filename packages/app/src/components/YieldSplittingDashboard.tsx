@@ -109,14 +109,14 @@ export function YieldSplittingDashboard(): React.JSX.Element {
           <div className='stats shadow mb-6 w-full'>
             <div className='stat'>
               <div className='stat-title'>Total Value Locked</div>
-              <div className='stat-value text-primary'>{parseFloat(formatEther(contractStats[0])).toFixed(2)} wU2U</div>
+              <div className='stat-value text-primary'>{parseFloat(formatEther(contractStats[0])).toFixed(2)} WETH</div>
               <div className='stat-desc'>Total deposited in protocol</div>
             </div>
 
             <div className='stat'>
               <div className='stat-title'>Total Yield Distributed</div>
               <div className='stat-value text-secondary'>
-                {parseFloat(formatEther(contractStats[1])).toFixed(4)} wU2U
+                {parseFloat(formatEther(contractStats[1])).toFixed(4)} WETH
               </div>
               <div className='stat-desc'>Cumulative yield paid out</div>
             </div>

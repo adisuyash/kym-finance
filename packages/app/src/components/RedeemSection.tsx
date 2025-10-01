@@ -154,7 +154,7 @@ export function RedeemSection() {
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
               </svg>
               <div>
-                <p className='text-sm font-medium text-white'>Yield Ready: {formatEther(claimableYield)} wU2U</p>
+                <p className='text-sm font-medium text-white'>Yield Ready: {formatEther(claimableYield)} WETH</p>
               </div>
             </div>
             <button onClick={handleClaimYield} disabled={isPending || isConfirming} className='px-4 py-2 text-sm font-semibold text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors'>
@@ -189,13 +189,13 @@ export function RedeemSection() {
               className={`btn btn-sm flex-1 ${redeemType === 'both' ? 'btn-primary' : 'btn-outline'}`}
               onClick={() => setRedeemType('both')}
               disabled={isMatured}>
-              PT + YT → wU2U
+              PT + YT → WETH
             </button>
             <button
               className={`btn btn-sm flex-1 ${redeemType === 'pt-only' ? 'btn-primary' : 'btn-outline'}`}
               onClick={() => setRedeemType('pt-only')}
               disabled={!isMatured}>
-              PT Only → wU2U
+              PT Only → WETH
             </button>
           </div>
         </div>
@@ -221,7 +221,7 @@ export function RedeemSection() {
         {redeemAmount && parseFloat(redeemAmount) > 0 && (
           <div className='p-3 mb-4 rounded-lg bg-blue-500/10 border border-blue-500/20'>
             <p className='text-sm text-white/70 mb-1'>You will receive:</p>
-            <p className='text-lg font-semibold text-white'>{redeemAmount} wU2U</p>
+            <p className='text-lg font-semibold text-white'>{redeemAmount} WETH</p>
             <p className='text-xs text-white/50 mt-1'>
               {redeemType === 'both' && `Burns ${redeemAmount} PT + ${redeemAmount} YT`}
               {redeemType === 'pt-only' && `Burns ${redeemAmount} PT`}
@@ -240,7 +240,7 @@ export function RedeemSection() {
                 ? 'Confirming...'
                 : isConfirming
                   ? 'Processing...'
-                  : `Redeem ${redeemAmount || '0'} PT+YT for wU2U`}
+                  : `Redeem ${redeemAmount || '0'} PT+YT for WETH`}
             </button>
           )}
 
@@ -253,7 +253,7 @@ export function RedeemSection() {
                 ? 'Confirming...'
                 : isConfirming
                   ? 'Processing...'
-                  : `Redeem ${redeemAmount || '0'} PT for wU2U`}
+                  : `Redeem ${redeemAmount || '0'} PT for WETH`}
             </button>
           )}
         </div>
@@ -274,16 +274,16 @@ export function RedeemSection() {
           <div className='collapse-content text-sm'>
             <div className='space-y-2'>
               <p>
-                <strong>Before Maturity:</strong> You need both PT and YT tokens to redeem wU2U. This burns both tokens
+                <strong>Before Maturity:</strong> You need both PT and YT tokens to redeem WETH. This burns both tokens
                 and returns the original deposit.
               </p>
               <p>
-                <strong>After Maturity:</strong> You can redeem PT tokens individually for wU2U at 1:1 ratio. YT tokens
+                <strong>After Maturity:</strong> You can redeem PT tokens individually for WETH at 1:1 ratio. YT tokens
                 no longer earn yield.
               </p>
               <p>
                 <strong>Yield Claiming:</strong> YT holders can claim accumulated yield at any time. Yield is paid in
-                wU2U.
+                WETH.
               </p>
             </div>
           </div>

@@ -70,7 +70,7 @@ export function SplitSection() {
   console.log('Contract addresses:', contracts)
   console.log('PT Balance:', ptBalance, 'Error:', ptError)
   console.log('YT Balance:', ytBalance, 'Error:', ytError)
-  console.log('wU2U Balance:', wethBalance)
+  console.log('WETH Balance:', wethBalance)
   console.log('Split Amount:', splitAmount)
   console.log('Required Amount (wei):', requiredAmount.toString())
   console.log('Current Allowance (wei):', currentAllowance?.toString())
@@ -189,7 +189,7 @@ export function SplitSection() {
           <div>
             <div className='font-bold'>How it works:</div>
             <div className='text-sm'>
-              Split your wU2U into Principal Tokens (PT) and Yield Tokens (YT) using time-value pricing. PT represents
+              Split your WETH into Principal Tokens (PT) and Yield Tokens (YT) using time-value pricing. PT represents
               the principal amount (~95.2% of face value), while YT captures the future yield premium (~4.8%).
             </div>
           </div>
@@ -198,7 +198,7 @@ export function SplitSection() {
         {/* Balance Display */}
         <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-4'>
           <div className='stat bg-base-200 rounded-lg'>
-            <div className='stat-title'>wU2U Balance</div>
+            <div className='stat-title'>WETH Balance</div>
             <div className='stat-value text-lg'>
               {wethBalance ? parseFloat(formatEther(wethBalance.value)).toFixed(4) : '0.0000'}
             </div>
@@ -206,7 +206,7 @@ export function SplitSection() {
           </div>
 
           <div className='stat bg-primary/10 rounded-lg'>
-            <div className='stat-title'>PT-wU2U Balance</div>
+            <div className='stat-title'>PT-WETH Balance</div>
             <div className='stat-value text-lg text-primary'>
               {ptBalance ? parseFloat(formatEther(ptBalance)).toFixed(4) : '0.0000'}
             </div>
@@ -216,7 +216,7 @@ export function SplitSection() {
           </div>
 
           <div className='stat bg-secondary/10 rounded-lg'>
-            <div className='stat-title'>YT-wU2U Balance</div>
+            <div className='stat-title'>YT-WETH Balance</div>
             <div className='stat-value text-lg text-secondary'>
               {ytBalance ? parseFloat(formatEther(ytBalance)).toFixed(4) : '0.0000'}
             </div>
@@ -234,7 +234,7 @@ export function SplitSection() {
         {/* Input Section */}
         <div className='form-control mb-4'>
           <label className='label'>
-            <span className='label-text'>Amount to Split (wU2U)</span>
+            <span className='label-text'>Amount to Split (WETH)</span>
             <button className='label-text-alt link link-hover' onClick={setMaxAmount}>
               Max
             </button>
@@ -257,7 +257,7 @@ export function SplitSection() {
               <div className='card-body p-4'>
                 <h4 className='font-semibold text-primary'>Principal Tokens (PT)</h4>
                 <div className='text-2xl font-bold'>{expectedPT.toFixed(4)}</div>
-                <div className='text-sm opacity-70'>Redeemable 1:1 for wU2U at maturity</div>
+                <div className='text-sm opacity-70'>Redeemable 1:1 for WETH at maturity</div>
               </div>
             </div>
 
@@ -303,7 +303,7 @@ export function SplitSection() {
               className='btn btn-outline w-full'
               onClick={handleApprove}
               disabled={!splitAmount || isPending || isConfirming || isApproving || !address}>
-              {isPending || isConfirming || isApproving ? 'Processing...' : 'Approve wU2U'}
+              {isPending || isConfirming || isApproving ? 'Processing...' : 'Approve WETH'}
             </button>
           ) : (
             <button
@@ -312,7 +312,7 @@ export function SplitSection() {
               disabled={
                 !splitAmount || isPending || isConfirming || isApproving || !address || parseFloat(splitAmount) <= 0
               }>
-              {isPending || isConfirming ? 'Processing...' : `Split ${splitAmount || '0'} wU2U`}
+              {isPending || isConfirming ? 'Processing...' : `Split ${splitAmount || '0'} WETH`}
             </button>
           )}
         </div>
@@ -342,7 +342,7 @@ export function SplitSection() {
           <div className='collapse-content text-sm'>
             <div className='space-y-2'>
               <p>
-                <strong>Principal Tokens (PT):</strong> Represent your original deposit. Can be redeemed 1:1 for wU2U
+                <strong>Principal Tokens (PT):</strong> Represent your original deposit. Can be redeemed 1:1 for WETH
                 when the contract matures.
               </p>
               <p>
