@@ -2,7 +2,7 @@
 // Update these addresses after deployment
 
 export interface ContractAddresses {
-  wrappedU2U: `0x${string}`
+  weth: `0x${string}`
   yieldSplitter: `0x${string}`
   principalToken: `0x${string}`
   yieldToken: `0x${string}`
@@ -10,21 +10,21 @@ export interface ContractAddresses {
   mockAMM: `0x${string}`
 }
 
-// ETH Nebulas Testnet (Chain ID: 2484) - Deployed Addresses
-// Deployed: 2025-09-30T12:54:40.271Z
-export const U2U_TESTNET_ADDRESSES: ContractAddresses = {
-  wrappedU2U: '0x31c13bed4969a135bE285Bcb7BfDc56b601EaA43',
-  yieldSplitter: '0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4',
-  principalToken: '0x721944D878eAF967031E4Ef1101142ccDD773cF4',
-  yieldToken: '0xBFE70173B901Bb927F2cD23BE63964f240216f78',
-  orochiOracle: '0xe702013eA3045D265720337127f06a6cCab4Fd15',
-  mockAMM: '0x5158337793D9913b5967B91a32bB328521D7C7fb',
+// Base Sepolia Testnet (Chain ID: 84532) - Deployed Addresses
+// Deployed: 2025-10-01T18:18:59Z
+export const BASE_SEPOLIA_ADDRESSES: ContractAddresses = {
+  weth: '0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4',
+  yieldSplitter: '0xe702013eA3045D265720337127f06a6cCab4Fd15',
+  principalToken: '0x1179a143dA25679e9FE46b8FD5194B76d9d1AFfd',
+  yieldToken: '0xfbbA21359Ebd8940dF2CcDb032f2093aa41f56cb',
+  orochiOracle: '0x5158337793D9913b5967B91a32bB328521D7C7fb',
+  mockAMM: '0x3742409450A9262d828Aaf47b422ef8693DA2eCc',
 } as const
 
 // Local Hardhat Network (Chain ID: 31337)
 export const LOCAL_ADDRESSES: ContractAddresses = {
   // Deployed contract addresses from local deployment
-  wrappedU2U: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
+  weth: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
   yieldSplitter: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0',
   principalToken: '0x75537828f2ce51be7289709686A69CbFDbB714F1',
   yieldToken: '0xE451980132E65465d0a498c53f0b5227326Dd73F',
@@ -35,13 +35,13 @@ export const LOCAL_ADDRESSES: ContractAddresses = {
 // Get contract addresses based on chain ID
 export function getContractAddresses(chainId: number): ContractAddresses {
   switch (chainId) {
-    case 2484: // ETH Nebulas Testnet
-      return U2U_TESTNET_ADDRESSES
+    case 84532: // Base Sepolia Testnet
+      return BASE_SEPOLIA_ADDRESSES
     case 31337: // Local Hardhat
       return LOCAL_ADDRESSES
     default:
-      console.warn(`Unsupported chain ID: ${chainId}, falling back to ETH Nebulas Testnet`)
-      return U2U_TESTNET_ADDRESSES
+      console.warn(`Unsupported chain ID: ${chainId}, falling back to Base Sepolia Testnet`)
+      return BASE_SEPOLIA_ADDRESSES
   }
 }
 

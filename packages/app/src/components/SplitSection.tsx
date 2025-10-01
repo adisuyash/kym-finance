@@ -25,7 +25,7 @@ export function SplitSection() {
   // Get contract addresses for current chain
   const contracts = getContractAddresses(chainId)
 
-  // Get wU2U balance
+  // Get WETH balance
   const { data: wethBalance, refetch: refetchWethBalance } = useBalance({
     address,
     token: contracts.weth,
@@ -171,7 +171,7 @@ export function SplitSection() {
       <div className='card-body'>
         <h2 className='card-title flex items-center gap-2'>
           <span className='text-2xl'></span>
-          Split wU2U into PT + YT
+          Split WETH into PT + YT
         </h2>
 
         <div className='alert alert-info mb-4'>

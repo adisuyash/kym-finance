@@ -13,15 +13,15 @@ export function useContractData() {
   const contracts = getContractAddresses(chainId)
 
   // Get native balance
-  const { data: ethBalance, isLoading: isLoadingU2U } = useBalance({
+  const { data: ethBalance, isLoading: isLoadingETH } = useBalance({
     address: address,
     query: {
       enabled: !!address,
     },
   })
 
-  // Get wU2U balance
-  const { data: wethBalance, isLoading: isLoadingWU2U } = useBalance({
+  // Get WETH balance
+  const { data: wethBalance, isLoading: isLoadingWETH } = useBalance({
     address: address,
     token: contracts.weth,
     query: {
@@ -50,7 +50,7 @@ export function useContractData() {
     },
   })
 
-  const isLoading = isLoadingU2U || isLoadingWU2U || isLoadingPosition || isLoadingStats
+  const isLoading = isLoadingETH || isLoadingWETH || isLoadingPosition || isLoadingStats
 
   return {
     address,

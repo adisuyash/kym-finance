@@ -28,9 +28,9 @@ export const baseSepolia = {
 export const ETH_CHAINS = [baseSepolia]
 
 export const NETWORK_COLORS = {
-  u2u: {
-    color: 'emerald',
-    bgVariant: 'bg-emerald-600',
+  base: {
+    color: 'blue',
+    bgVariant: 'bg-blue-600',
   },
   ethereum: {
     color: 'green',
@@ -39,10 +39,6 @@ export const NETWORK_COLORS = {
   arbitrum: {
     color: 'sky',
     bgVariant: 'bg-sky-600',
-  },
-  base: {
-    color: 'blue',
-    bgVariant: 'bg-blue-600',
   },
   linea: {
     color: 'slate',
@@ -68,7 +64,6 @@ export const NETWORK_COLORS = {
 
 export function GetNetworkColor(chain?: string, type: 'color' | 'bgVariant' = 'color') {
   chain = chain?.toLocaleLowerCase()
-  if (chain?.includes('u2u')) return NETWORK_COLORS.u2u[type]
   if (chain === 'ethereum' || chain === 'mainnet' || chain === 'homestead') return NETWORK_COLORS.ethereum[type]
   if (chain?.includes('arbitrum')) return NETWORK_COLORS.arbitrum[type]
   if (chain?.includes('base')) return NETWORK_COLORS.base[type]

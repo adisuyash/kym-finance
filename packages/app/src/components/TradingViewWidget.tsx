@@ -25,7 +25,7 @@ function TradingViewWidget() {
       locale: 'en',
       save_image: true,
       style: '1',
-      symbol: 'CRYPTO:U2UUSD',
+      symbol: 'CRYPTO:ETHUSD',
       theme: 'dark',
       timezone: 'Etc/UTC',
       backgroundColor: '#0F0F0F',
@@ -49,11 +49,11 @@ function TradingViewWidget() {
         style={{ height: 'calc(100% - 32px)', width: '100%' }}></div>
       <div className='tradingview-widget-copyright text-xs text-white/30 p-2'>
         <a
-          href='https://www.tradingview.com/symbols/U2UUSD/?exchange=CRYPTO'
+          href='https://www.tradingview.com/symbols/ETHUSD/?exchange=CRYPTO'
           rel='noopener nofollow'
           target='_blank'
           className='text-blue-400 hover:text-blue-300'>
-          U2UUSD chart
+          ETHUSD chart
         </a>
         <span className='trademark'> by TradingView</span>
       </div>
