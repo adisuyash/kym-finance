@@ -28,7 +28,7 @@ Create `.env.local` in `packages/app/`:
 ```env
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
 NEXT_PUBLIC_SITE_NAME="Kym Finance"
-NEXT_PUBLIC_SITE_DESCRIPTION="Yield splitting protocol on U2U Network"
+NEXT_PUBLIC_SITE_DESCRIPTION="Yield splitting protocol on Base Sepolia"
 NEXT_PUBLIC_SITE_URL="https://your-domain.com"
 ```
 
@@ -38,30 +38,30 @@ NEXT_PUBLIC_SITE_URL="https://your-domain.com"
 
 ### 1. Connect Wallet
 
-- Connect MetaMask to U2U Nebulas Testnet
-- Add network: Chain ID `2484`, RPC: `https://rpc-nebulas-testnet.u2u.xyz/`
+- Connect MetaMask to Base Sepolia Testnet
+- Add network: Chain ID `84532`, RPC: `https://sepolia.base.org`
 
-### 2. Get Test U2U
+### 2. Get Test ETH
 
-- Use U2U testnet faucet: https://faucet.u2u.xyz/
-- Enter your wallet address and receive test U2U
+- Use Base Sepolia faucet: https://www.coinbase.com/faucets/base-ethereum-goerli-faucet
+- Enter your wallet address and receive test ETH
 
-### 3. Wrap U2U → wU2U
+### 3. Wrap ETH → WETH
 
 ```typescript
 // In Deposit section
-1. Enter U2U amount
-2. Click "Wrap U2U"
+1. Enter ETH amount
+2. Click "Wrap ETH"
 3. Confirm transaction
 ```
 
-### 4. Split wU2U → PT + YT
+### 4. Split wETH → PT + YT
 
 ```typescript
 // In Split section
-1. Enter wU2U amount to split
-2. Click "Approve wU2U" (first time)
-3. Click "Split X wU2U"
+1. Enter wETH amount to split
+2. Click "Approve wETH" (first time)
+3. Click "Split X wETH"
 4. Receive PT + YT tokens with Pendle pricing
 ```
 
@@ -81,7 +81,7 @@ NEXT_PUBLIC_SITE_URL="https://your-domain.com"
 // In Redeem section
 1. View accumulated yield from YT tokens
 2. Click "Claim Yield" to harvest
-3. Redeem PT + YT back to wU2U at maturity
+3. Redeem PT + YT back to wETH at maturity
 ```
 
 ## Development & Testing
@@ -101,26 +101,26 @@ npx hardhat compile
 npx hardhat test
 ```
 
-### Deploy to U2U Testnet
+### Deploy to ETH Testnet
 
 ```bash
 cd packages/hardhat
 
 # Deploy all contracts
-npx hardhat run scripts/deployToU2UTestnet.js --network u2uTestnet
+npx hardhat run scripts/deployToETHTestnet.js --network ethTestnet
 
 # Initialize AMM pool
-npx hardhat run scripts/initPool.js --network u2uTestnet
+npx hardhat run scripts/initPool.js --network ethTestnet
 ```
 
 ### Useful Scripts
 
 ```bash
 # Check pool status
-npx hardhat run scripts/checkPoolStatus.js --network u2uTestnet
+npx hardhat run scripts/checkPoolStatus.js --network ethTestnet
 
 # Setup demo data
-npx hardhat run scripts/setupDemo.js --network u2uTestnet
+npx hardhat run scripts/setupDemo.js --network ethTestnet
 ```
 
 ## Technical Implementation
@@ -163,13 +163,13 @@ const handleSplit = async () => {
 #### Network Configuration
 
 - **Chain ID:** 2484
-- **Network:** U2U Nebulas Testnet (or any preferred network)
-- RPC URL: `https://rpc-nebulas-testnet.u2u.xyz`
-- Extras: [U2U Explorer](https://testnet.u2uscan.xyz/) | [U2U Faucet](https://faucet.u2u.xyz/)
+- **Network:** ETH Nebulas Testnet (or any preferred network)
+- RPC URL: `https://rpc-nebulas-testnet.eth.xyz`
+- Extras: [ETH Explorer](https://testnet.ethscan.xyz/) | [ETH Faucet](https://faucet.eth.xyz/)
 
 #### Frontend Integration
 - Addresses updated in: `packages/app/src/config/contracts.ts`  
-- Frontend automatically connects to U2U Nebulas Testnet (Chain ID: 2484)
+- Frontend automatically connects to ETH Nebulas Testnet (Chain ID: 2484)
 
 #### ABIs Location
 - Minimal ABIs: `packages/app/src/config/contracts.ts`  
@@ -179,7 +179,7 @@ const handleSplit = async () => {
 #### Verification
 ```bash
 cd packages/hardhat
-npx hardhat verify --network u2uTestnet <CONTRACT_ADDRESS> [CONSTRUCTOR_ARGS]
+npx hardhat verify --network ethTestnet <CONTRACT_ADDRESS> [CONSTRUCTOR_ARGS]
 ```
 
 Next Steps:
@@ -188,10 +188,10 @@ Next Steps:
 - 🔄 Optional: Run demo script
 ```bash
 cd packages/hardhat
-npx hardhat run scripts/setupDemo.js --network u2uTestnet
+npx hardhat run scripts/setupDemo.js --network ethTestnet
 ```
 - 🔄 Test full user flow on frontend
-- 🔄 Verify contracts on U2U Scan (optional)
+- 🔄 Verify contracts on ETH Scan (optional)
 
 ### Vercel Deployment
 
