@@ -2,8 +2,10 @@
 
 Kym Finance is a DeFi protocol that enables you to trade and maximize returns from yield-generating assets.
 
-[![Vercel](https://img.shields.io/badge/Live:_kym.finance-black?logo=vercel&style=long-horizontal)](https://kymfinance.vercel.app/)
-[![Twitter](https://img.shields.io/badge/Follow:_@kymfinance-blue?logo=x&style=long-horizontal)](https://x.com/KymFinance)
+![Kym Finance](https://img.shields.io/badge/U2U-Nebulas%20Testnet-darkred) 
+![Solidity](https://img.shields.io/badge/Solidity-0.8.17-purple) 
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) 
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
 
 ## Network Configuration
 
@@ -170,6 +172,5 @@ For detailed setup, wallet connection, and usage instructions, please refer to o
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
 
 Built with ❤️ for the VietBUIDL Hackathon
