@@ -1,3 +1,31 @@
+Kym Finance - U2U Solaris Mainnet Deployment
+=============================================
+Deployed: 2025-10-06T11:13:25.271Z
+Network: U2U Solaris Mainnet (Chain ID: 39)
+RPC: https://rpc-solaris-mainnet.u2u.xyz/
+Explorer: https://mainnet.u2uscan.xyz/
+
+CONTRACT ADDRESSES
+==================
+
+WrappedU2U:      0x7075D321d3f586445609635763eF9Dbbc6B13127
+YieldSplitter:   0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe
+PrincipalToken:  0x6F363E95B26d92Ffb550e968A1a134efeb4029FE
+YieldToken:      0xfF2fb46282e801a96730B39634454876AE54173a
+OrochiOracle:    0x8c2786cfc456232a4017658481C71a3FF3676418
+MockAMM:         0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946
+
+EXPLORER LINKS
+==============
+
+WrappedU2U:      https://testnet.u2uscan.xyz/address/0x7075D321d3f586445609635763eF9Dbbc6B13127
+YieldSplitter:   https://testnet.u2uscan.xyz/address/0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe
+PrincipalToken:  https://testnet.u2uscan.xyz/address/0x6F363E95B26d92Ffb550e968A1a134efeb4029FE
+YieldToken:      https://testnet.u2uscan.xyz/address/0xfF2fb46282e801a96730B39634454876AE54173a
+OrochiOracle:    https://testnet.u2uscan.xyz/address/0x8c2786cfc456232a4017658481C71a3FF3676418
+MockAMM:         https://testnet.u2uscan.xyz/address/0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946
+
+
 Kym Finance - U2U Nebulas Testnet Deployment
 =============================================
 Deployed: 2025-09-30T12:54:40.271Z

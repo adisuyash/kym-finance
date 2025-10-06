@@ -4,9 +4,13 @@ async function main() {
   console.log("🚀 Setting up AMM Pool Demo...");
 
   // New contract addresses
-  const WRAPPED_U2U_ADDRESS = "0xF7Bce9D2106773D8d14B17B49FC261EfF52e7d0D";
-  const YIELD_SPLITTER_ADDRESS = "0x81485FBD886d262b671F1789FB066366619eA8c7";
-  const MOCK_AMM_ADDRESS = "0x3aE2a95a17aEdb8B53d0EBa6715336274b098DbF";
+  // const WRAPPED_U2U_ADDRESS = "0xF7Bce9D2106773D8d14B17B49FC261EfF52e7d0D";
+  // const YIELD_SPLITTER_ADDRESS = "0x81485FBD886d262b671F1789FB066366619eA8c7";
+  // const MOCK_AMM_ADDRESS = "0x3aE2a95a17aEdb8B53d0EBa6715336274b098DbF";
+  
+  const WRAPPED_U2U_ADDRESS = "0x7075D321d3f586445609635763eF9Dbbc6B13127";
+  const YIELD_SPLITTER_ADDRESS = "0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe";
+  const MOCK_AMM_ADDRESS = "0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946";
 
   const [deployer] = await ethers.getSigners();
   console.log("👤 Deployer:", deployer.address);
@@ -26,16 +30,16 @@ async function main() {
   console.log("📍 YT Address:", ytAddress);
 
   // Step 1: Wrap some U2U
-  console.log("\n💰 Step 1: Wrapping 0.2 U2U...");
-  const wrapAmount = ethers.parseEther("0.2");
+  console.log("\n💰 Step 1: Wrapping 5 U2U...");
+  const wrapAmount = ethers.parseEther("5");
   await wrappedU2U.deposit({ value: wrapAmount });
   
   const wU2UBalance = await wrappedU2U.balanceOf(deployer.address);
   console.log(`✅ Wrapped U2U Balance: ${ethers.formatEther(wU2UBalance)}`);
 
   // Step 2: Split wU2U to get PT/YT tokens
-  console.log("\n✂️ Step 2: Splitting 0.05 wU2U to get PT/YT tokens...");
-  const splitAmount = ethers.parseEther("0.05");
+  console.log("\n✂️ Step 2: Splitting 4 wU2U to get PT/YT tokens...");
+  const splitAmount = ethers.parseEther("4");
   
   console.log("📋 Approving wU2U...");
   const approveTx = await wrappedU2U.approve(YIELD_SPLITTER_ADDRESS, splitAmount);

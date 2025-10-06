@@ -4,19 +4,21 @@ import { useAccount, useChainId, useSwitchChain } from 'wagmi'
 import { useEffect } from 'react'
 import { toast } from 'react-hot-toast'
 
+const U2U_MAINNET_CHAIN_ID = 39
 const U2U_TESTNET_CHAIN_ID = 2484
+const SUPPORTED_CHAIN_IDS = [U2U_MAINNET_CHAIN_ID, U2U_TESTNET_CHAIN_ID]
 
 export function NetworkGuard({ children }: { children: React.ReactNode }) {
   const { isConnected } = useAccount()
   const chainId = useChainId()
   const { switchChain } = useSwitchChain()
 
-  const isWrongNetwork = isConnected && chainId !== U2U_TESTNET_CHAIN_ID
+  const isWrongNetwork = isConnected && !SUPPORTED_CHAIN_IDS.includes(chainId)
 
   useEffect(() => {
     if (isWrongNetwork) {
       toast.error(
-        `Wrong network detected! Please switch to U2U Nebulas Testnet (Chain ID: ${U2U_TESTNET_CHAIN_ID})`,
+        `Wrong network detected! Please switch to U2U Mainnet or Testnet`,
         {
           duration: 6000,
           position: 'top-center',
@@ -49,34 +51,40 @@ export function NetworkGuard({ children }: { children: React.ReactNode }) {
             <p className="text-gray-600 mb-6">
               You&apos;re currently connected to <span className="font-semibold">Chain ID: {chainId}</span>
               <br />
-              Please switch to <span className="font-semibold text-emerald-600">U2U Nebulas Testnet</span>
+              Please switch to <span className="font-semibold text-emerald-600">U2U Network</span>
             </p>
           </div>
 
           <div className="bg-emerald-50 rounded-lg p-4 mb-6 text-left">
-            <h3 className="font-semibold text-emerald-900 mb-2">Network Details:</h3>
-            <div className="text-sm text-emerald-800 space-y-1">
-              <p>
-                <span className="font-medium">Name:</span> U2U Nebulas Testnet
-              </p>
-              <p>
-                <span className="font-medium">Chain ID:</span> 2484
-              </p>
-              <p>
-                <span className="font-medium">RPC:</span> https://rpc-nebulas-testnet.u2u.xyz/
-              </p>
-              <p>
-                <span className="font-medium">Explorer:</span> https://testnet.u2uscan.xyz/
-              </p>
+            <h3 className="font-semibold text-emerald-900 mb-2">Supported Networks:</h3>
+            <div className="text-sm text-emerald-800 space-y-3">
+              <div>
+                <p className="font-semibold">U2U Solaris Mainnet</p>
+                <p><span className="font-medium">Chain ID:</span> 39</p>
+                <p><span className="font-medium">RPC:</span> https://rpc-mainnet.u2u.xyz/</p>
+              </div>
+              <div className="border-t border-emerald-200 pt-2">
+                <p className="font-semibold">U2U Nebulas Testnet</p>
+                <p><span className="font-medium">Chain ID:</span> 2484</p>
+                <p><span className="font-medium">RPC:</span> https://rpc-nebulas-testnet.u2u.xyz/</p>
+              </div>
             </div>
           </div>
 
-          <button
-            onClick={() => switchChain?.({ chainId: U2U_TESTNET_CHAIN_ID })}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 mb-3"
-          >
-            Switch to U2U Nebulas Testnet
-          </button>
+          <div className="space-y-2">
+            <button
+              onClick={() => switchChain?.({ chainId: U2U_MAINNET_CHAIN_ID })}
+              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+            >
+              Switch to U2U Mainnet
+            </button>
+            <button
+              onClick={() => switchChain?.({ chainId: U2U_TESTNET_CHAIN_ID })}
+              className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+            >
+              Switch to U2U Testnet
+            </button>
+          </div>
 
           <p className="text-xs text-gray-500">
             Need testnet U2U?{' '}

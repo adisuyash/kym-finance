@@ -10,6 +10,17 @@ export interface ContractAddresses {
   mockAMM: `0x${string}`
 }
 
+// U2U Solaris Mainnet (Chain ID: 39) - Deployed Addresses
+// Deployed: 2025-10-06T04:26:52.654Z
+export const U2U_MAINNET_ADDRESSES: ContractAddresses = {
+  wrappedU2U: '0x7075D321d3f586445609635763eF9Dbbc6B13127',
+  yieldSplitter: '0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe',
+  principalToken: '0x6F363E95B26d92Ffb550e968A1a134efeb4029FE',
+  yieldToken: '0xfF2fb46282e801a96730B39634454876AE54173a',
+  orochiOracle: '0x8c2786cfc456232a4017658481C71a3FF3676418',
+  mockAMM: '0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946',
+} as const
+
 // U2U Nebulas Testnet (Chain ID: 2484) - Deployed Addresses
 // Deployed: 2025-09-30T12:54:40.271Z
 export const U2U_TESTNET_ADDRESSES: ContractAddresses = {
@@ -35,13 +46,15 @@ export const LOCAL_ADDRESSES: ContractAddresses = {
 // Get contract addresses based on chain ID
 export function getContractAddresses(chainId: number): ContractAddresses {
   switch (chainId) {
+    case 39: // U2U Solaris Mainnet
+      return U2U_MAINNET_ADDRESSES
     case 2484: // U2U Nebulas Testnet
       return U2U_TESTNET_ADDRESSES
     case 31337: // Local Hardhat
       return LOCAL_ADDRESSES
     default:
-      console.warn(`Unsupported chain ID: ${chainId}, falling back to U2U Nebulas Testnet`)
-      return U2U_TESTNET_ADDRESSES
+      console.warn(`Unsupported chain ID: ${chainId}, falling back to U2U Solaris Mainnet`)
+      return U2U_MAINNET_ADDRESSES
   }
 }
 
