@@ -72,23 +72,44 @@ Contract ABIs are available in:
 
 ## Verification Status
 
-Contracts can be verified on U2U Scan using:
+### Mainnet Contracts - ALL VERIFIED
+
+All mainnet contracts have been successfully verified on U2U Scan:
+
+| Contract       | Status   | Verification Link                                                                        |
+| -------------- | -------- | ---------------------------------------------------------------------------------------- |
+| WrappedU2U     | Verified | [View Code](https://u2uscan.xyz/address/0x7075D321d3f586445609635763eF9Dbbc6B13127#code) |
+| YieldSplitter  | Verified | [View Code](https://u2uscan.xyz/address/0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe#code) |
+| PrincipalToken | Verified | [View Code](https://u2uscan.xyz/address/0x6F363E95B26d92Ffb550e968A1a134efeb4029FE#code) |
+| YieldToken     | Verified | [View Code](https://u2uscan.xyz/address/0xfF2fb46282e801a96730B39634454876AE54173a#code) |
+| OrochiOracle   | Verified | [View Code](https://u2uscan.xyz/address/0x8c2786cfc456232a4017658481C71a3FF3676418#code) |
+| MockAMM        | Verified | [View Code](https://u2uscan.xyz/address/0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946#code) |
+
+### Verify Contracts Manually
+
+To verify contracts on U2U Scan:
 
 ```bash
 cd packages/hardhat
-npx hardhat verify --network u2uTestnet <CONTRACT_ADDRESS> [CONSTRUCTOR_ARGS]
+
+# Verify all mainnet contracts at once
+npx hardhat run scripts/verifyMainnetContracts.js --network u2uMainnet
+
+# Or verify individual contracts
+npx hardhat verify --network u2uMainnet <CONTRACT_ADDRESS> [CONSTRUCTOR_ARGS]
 ```
 
 Note: U2U Scan doesn't require an API key for verification.
 
 ## Next Steps
 
-1. ✅ Contracts deployed successfully
-2. ✅ Frontend addresses updated
-3. 🔄 Optional: Run setup demo script to populate test data
+1. ✅ Contracts deployed successfully to mainnet
+2. ✅ All contracts verified on U2U Scan
+3. ✅ Frontend addresses updated
+4. 🔄 Optional: Run setup demo script to populate test data
    ```bash
    cd packages/hardhat
-   npx hardhat run scripts/setupDemo.js --network u2uTestnet
+   npx hardhat run scripts/setupPoolDemo.js --network u2uMainnet
    ```
-4. 🔄 Test the full user flow on the frontend
-5. 🔄 Verify contracts on U2U Scan (optional)
+5. 🔄 Test the full user flow on the frontend
+6. 🔄 Monitor contract interactions and user activity
