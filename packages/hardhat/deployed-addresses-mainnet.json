@@ -1,0 +1,12 @@
+{
+  "network": "u2uMainnet",
+  "chainId": 39,
+  "wrappedU2U": "0x7075D321d3f586445609635763eF9Dbbc6B13127",
+  "yieldSplitter": "0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe",
+  "principalToken": "0x6F363E95B26d92Ffb550e968A1a134efeb4029FE",
+  "yieldToken": "0xfF2fb46282e801a96730B39634454876AE54173a",
+  "orochiOracle": "0x8c2786cfc456232a4017658481C71a3FF3676418",
+  "mockAMM": "0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946",
+  "deployer": "0x73A4ecaBFb474063ab5585f72113E543E42c7201",
+  "deployedAt": "2025-10-06T04:26:52.654Z"
+}

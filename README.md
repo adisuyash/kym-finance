@@ -2,33 +2,37 @@
 
 Kym Finance is a DeFi protocol that enables you to trade and maximize returns from yield-generating assets.
 
-![Kym Finance](https://img.shields.io/badge/U2U-Nebulas%20Testnet-darkgreen) 
+![Kym Finance](https://img.shields.io/badge/U2U-Nebulas%20Testnet-darkred) 
 ![Solidity](https://img.shields.io/badge/Solidity-0.8.17-purple) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black)
 
-**Deployed on Vercel: https://kymfinance.vercel.app**
+## Network Configuration
 
-**X (Twitter): https://x.com/KymFinance**
+#### U2U Solaris Mainnet
+
+- **Chain ID**: 39
+- **RPC URL:** `https://rpc-solaris-mainnet.u2u.xyz/`
+- **Explorer:** `https://u2uscan.xyz/`
+
+#### U2U Nebulas Testnet
+
+- **Chain ID**: 2484
+- **RPC URL:** `https://rpc-nebulas-testnet.u2u.xyz/`
+- **Explorer:** `https://testnet.u2uscan.xyz/`
+- Claim testnet tokens at the [faucet](https://faucet.u2u.xyz/).
 
 ## Deployed Contracts
 
-### Network Configuration
 
-- **Chain ID**: `2484`
-- **Currency**: U2U
-- **Network Name**: U2U Nebulas Testnet
-- **RPC URL**: `https://rpc-nebulas-testnet.u2u.xyz/`
-
-**Quick Links:** [U2U Testnet Explorer](https://testnet.u2uscan.xyz) | [U2U Faucet](https://faucet.u2u.xyz)
 | Contract           | Address                                      | Purpose                       | Explorer Link |
 | ------------------ | -------------------------------------------- | ----------------------------- |---------------|
-| **WrappedU2U**     | `0x31c13bed4969a135bE285Bcb7BfDc56b601EaA43` | U2U wrapper token             | [View](https://testnet.u2uscan.xyz/address/0x31c13bed4969a135bE285Bcb7BfDc56b601EaA43) |
-| **YieldSplitter**  | `0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4` | Core splitting logic          | [View](https://testnet.u2uscan.xyz/address/0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4) |
-| **PrincipalToken** | `0x721944D878eAF967031E4Ef1101142ccDD773cF4` | PT-wU2U token                 | [View](https://testnet.u2uscan.xyz/address/0x721944D878eAF967031E4Ef1101142ccDD773cF4) |
-| **YieldToken**     | `0xBFE70173B901Bb927F2cD23BE63964f240216f78` | YT-wU2U token                 | [View](https://testnet.u2uscan.xyz/address/0xBFE70173B901Bb927F2cD23BE63964f240216f78) |
-| **OrochiOracle**   | `0xe702013eA3045D265720337127f06a6cCab4Fd15` | Price feed oracle | [View](https://testnet.u2uscan.xyz/address/0xe702013eA3045D265720337127f06a6cCab4Fd15) |
-| **MockAMM**        | `0x5158337793D9913b5967B91a32bB328521D7C7fb` | Trading pool (0.3% fee) | [View](https://testnet.u2uscan.xyz/address/0x5158337793D9913b5967B91a32bB328521D7C7fb) |
+| **WrappedU2U**     | `0x7075D321d3f586445609635763eF9Dbbc6B13127` | U2U wrapper token             | [View](https://u2uscan.xyz/address/0x7075D321d3f586445609635763eF9Dbbc6B13127) |
+| **YieldSplitter**  | `0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe` | Core splitting logic          | [View](https://u2uscan.xyz/address/0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe) |
+| **PrincipalToken** | `0x6F363E95B26d92Ffb550e968A1a134efeb4029FE` | PT-wU2U token                 | [View](https://u2uscan.xyz/address/0x6F363E95B26d92Ffb550e968A1a134efeb4029FE) |
+| **YieldToken**     | `0xfF2fb46282e801a96730B39634454876AE54173a` | YT-wU2U token                 | [View](https://u2uscan.xyz/address/0xfF2fb46282e801a96730B39634454876AE54173a) |
+| **OrochiOracle**   | `0x8c2786cfc456232a4017658481C71a3FF3676418` | Price feed oracle | [View](https://u2uscan.xyz/address/0x8c2786cfc456232a4017658481C71a3FF3676418) |
+| **MockAMM**        | `0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946` | Trading pool (0.3% fee) | [View](https://u2uscan.xyz/address/0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946) |
 
 > For detailed network configurations, see [NETWORKS.md](NETWORKS.md)
 
@@ -71,7 +75,7 @@ Principal     Yield
 
 
 ## The Mathematics Behind Kym
-Kym Finance uses a **time-value discount factor** to fairly split deposited assets into principal and yield tokens.
+Kym Finance utilises a **time-value discount factor** to allocate deposited assets between principal and yield tokens.
 
 #### PT / YT Split Formula
 
@@ -169,5 +173,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-
-<p align="center">Built with ❤️ for the VietBUIDL Hackathon</p>
+Built with ❤️ for the VietBUIDL Hackathon

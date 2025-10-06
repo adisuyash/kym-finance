@@ -3,9 +3,13 @@ const { ethers } = require("hardhat");
 async function main() {
   console.log("🏊 Initializing AMM Pool...");
 
-  // Contract addresses (deployed 2025-09-30)
-  const MOCK_AMM_ADDRESS = "0x5158337793D9913b5967B91a32bB328521D7C7fb";
-  const YIELD_SPLITTER_ADDRESS = "0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4";
+  // Testnet Contract addresses (deployed 2025-09-30)
+  // const MOCK_AMM_ADDRESS = "0x5158337793D9913b5967B91a32bB328521D7C7fb";
+  // const YIELD_SPLITTER_ADDRESS = "0x5405d3e877636212CBfBA5Cd7415ca8C26700Bf4";
+
+  // Mainnet Contract addresses (deployed 2025-09-30)
+  const MOCK_AMM_ADDRESS = "0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946";
+  const YIELD_SPLITTER_ADDRESS = "0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe";
 
   const [deployer] = await ethers.getSigners();
   console.log("👤 Deployer:", deployer.address);
@@ -36,7 +40,7 @@ async function main() {
   }
 
   // Use very small amounts for initialization
-  const initAmount = ethers.parseEther("0.001"); // 0.001 tokens
+  const initAmount = ethers.parseEther("5"); // 5 tokens
 
   console.log("🔓 Approving tokens...");
   await principalToken.approve(MOCK_AMM_ADDRESS, initAmount);

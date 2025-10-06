@@ -44,7 +44,7 @@ export default function LandingPage() {
               <span className='absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping'></span>
               <span className='relative inline-flex h-2 w-2 rounded-full bg-green-500'></span>
             </span>
-            Live on U2U Testnet
+            Deployed on U2U Mainnet
           </div>
 
           {/* Title */}

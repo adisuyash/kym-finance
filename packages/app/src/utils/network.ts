@@ -28,8 +28,34 @@ export const u2uTestnet = {
   testnet: true,
 } as const
 
-// Only U2U Nebulas Testnet for this deployment
-export const ETH_CHAINS = [u2uTestnet]
+// U2U Solaris Mainnet configuration
+export const u2uMainnet = {
+  id: 39,
+  name: 'U2U Solaris Mainnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'U2UNetwork',
+    symbol: 'U2U',
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://rpc-mainnet.u2u.xyz/'],
+    },
+    public: {
+      http: ['https://rpc-mainnet.u2u.xyz/'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'U2U Mainnet Explorer',
+      url: 'https://u2uscan.xyz/',
+    },
+  },
+  testnet: false,
+} as const
+
+// U2U Networks - Testnet and Mainnet
+export const ETH_CHAINS = [u2uMainnet, u2uTestnet]
 
 export const NETWORK_COLORS = {
   u2u: {
