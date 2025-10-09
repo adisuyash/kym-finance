@@ -2,7 +2,7 @@
 
 Kym Finance is a DeFi protocol that enables you to trade and maximize returns from yield-generating assets.
 
-![Kym Finance](https://img.shields.io/badge/U2U-Nebulas%20Testnet-darkred) 
+![Kym Finance](https://img.shields.io/badge/U2U-Nebulas%20Mainnet-darkred) 
 ![Solidity](https://img.shields.io/badge/Solidity-0.8.17-purple) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black)
