@@ -18,12 +18,12 @@ MockAMM:         0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946
 EXPLORER LINKS
 ==============
 
-WrappedU2U:      https://testnet.u2uscan.xyz/address/0x7075D321d3f586445609635763eF9Dbbc6B13127
-YieldSplitter:   https://testnet.u2uscan.xyz/address/0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe
-PrincipalToken:  https://testnet.u2uscan.xyz/address/0x6F363E95B26d92Ffb550e968A1a134efeb4029FE
-YieldToken:      https://testnet.u2uscan.xyz/address/0xfF2fb46282e801a96730B39634454876AE54173a
-OrochiOracle:    https://testnet.u2uscan.xyz/address/0x8c2786cfc456232a4017658481C71a3FF3676418
-MockAMM:         https://testnet.u2uscan.xyz/address/0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946
+WrappedU2U:      https://u2uscan.xyz/address/0x7075D321d3f586445609635763eF9Dbbc6B13127
+YieldSplitter:   https://u2uscan.xyz/address/0xbDD418Ea726a0b53662E42429BDAB867Ac746aAe
+PrincipalToken:  https://u2uscan.xyz/address/0x6F363E95B26d92Ffb550e968A1a134efeb4029FE
+YieldToken:      https://u2uscan.xyz/address/0xfF2fb46282e801a96730B39634454876AE54173a
+OrochiOracle:    https://u2uscan.xyz/address/0x8c2786cfc456232a4017658481C71a3FF3676418
+MockAMM:         https://u2uscan.xyz/address/0xAB3ca7a72A9a26DB78A3d0Ed81C730085E23a946
 
 
 Kym Finance - U2U Nebulas Testnet Deployment
